@@ -13,11 +13,6 @@ set $mod Mod4
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# Disable mouse acceleration
-exec --no-startup-id xinput --set-prop 11 'libinput Accel Profile Enabled' 0, 1
-# Change mouse speed
-# exec --no-startup-id xinput --set-prop 11 'libinput Accel Speed' 0.4
-
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:monospace 10
@@ -189,23 +184,32 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Media keys
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause --player=spotify
+bindsym XF86AudioNext exec playerctl next --player=spotify
+bindsym XF86AudioPrev exec playerctl previous --player=spotify
 
+#bindsym XF86AudioPlay exec spt playback --toggle
+#bindsym XF86AudioNext exec spt playback --next
+#bindsym XF86AudioPrev exec spt playback --previous
 
 focus_follows_mouse no
 workspace_layout tabbed
 
+# Disable mouse acceleration
+exec --no-startup-id xinput --set-prop 11 'libinput Accel Profile Enabled' 0, 1
+# Change mouse speed
+# exec --no-startup-id xinput --set-prop 11 'libinput Accel Speed' 0.4
 exec --no-startup-id xset r rate 200 40
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         position bottom
-        status_command i3status
+        status_command i3status-rs
         tray_output primary
 }
+
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Sway keyboard config
 #input "type:keyboard" {
