@@ -93,3 +93,17 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 # tabtab source for packages
 # uninstall by removing these lines
 #[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+
+
+# Configuration for `nnn` file manager
+export NNN_OPTS="dHn" # if you prefer to have all the options at the same place
+export LC_COLLATE="C" # hidden files on top
+export NNN_FIFO="/tmp/nnn.fifo" # temporary buffer for the previews
+export NNN_FCOLORS="AAAAE631BBBBCCCCDDDD9999" # feel free to change the colors
+export NNN_PLUG='p:preview-tui' # many other plugins are available here: https://github.com/jarun/nnn/tree/master/plugins
+export SPLIT='v' # to split Kitty vertically
+#-----
+if [ -f /usr/share/nnn/quitcd/quitcd.bash_zsh ]; then
+    source /usr/share/nnn/quitcd/quitcd.bash_zsh
+fi
+alias ncp="cat ${NNN_SEL:-${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.selection} | tr '\0' '\n'"
