@@ -2,6 +2,7 @@
 
 ## Required applications
 
+* `dunst` (notifications)
 * `sway`
   * `waybar`
 * `rofi`
