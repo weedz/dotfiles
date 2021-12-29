@@ -199,11 +199,10 @@ bindsym $mod+r mode "resize"
 # exec --no-startup-id dex --autostart --environment sway
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Media keys
 bindsym XF86AudioPlay exec playerctl play-pause --player=spotify
@@ -224,10 +223,6 @@ font pango:JetBrainsMonoNL Nerd Font Mono 10
 # Read `man 5 sway-bar` for more information about this section.
 bar {
     swaybar_command waybar
-    #position bottom
-    #status_command i3status-rs
-    # tray_output primary
-    #tray_bindcode 273 ContextMenu
 }
 input "type:keyboard" {
     xkb_layout se
