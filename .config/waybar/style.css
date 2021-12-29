@@ -54,13 +54,11 @@
 }
 
 /* Each module */
-#battery,
 #clock,
 #cpu,
-#custom-keyboard-layout,
+#custom-spotify,
 #memory,
 #mode,
-#network,
 #pulseaudio,
 #temperature,
 #tray {

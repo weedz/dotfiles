@@ -2,43 +2,24 @@
     // "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
     "modules-center": ["sway/window"],
     "modules-right": ["pulseaudio", "cpu", "memory", "temperature", "clock", "tray"],
     // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
     "custom/spotify": {
         "exec": "/usr/bin/python3 $HOME/.config/waybar/modules/mediaplayer.py --player spotify",
-        "max-length": 40,
+        "max-length": 60,
         "format": "{}  ",
         "escape": true,
         "return-type": "json",
         "on-click": "playerctl --player=spotify play-pause"
-        // "on-scroll-up": "playerctl next",
-        // "on-scroll-down": "playerctl previous"
     },
     "tray": {
-        // "icon-size": 21,
         "spacing": 10
     },
     "clock": {
@@ -46,7 +27,6 @@
         "on-click": "xdg-open https://calendar.google.com/calendar",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "{:%Y-%m-%d %H:%M}"
-        // "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
         "format": "{load} {usage}% ",
@@ -56,7 +36,6 @@
         "format": "{}% "
     },
     "temperature": {
-        // "thermal-zone": 2,
         "hwmon-path": "/sys/class/hwmon/hwmon2/temp2_input",
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
@@ -64,7 +43,7 @@
         "format-icons": ["", "", ""]
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
+        "scroll-step": 5, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
