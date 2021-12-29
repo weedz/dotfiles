@@ -22,6 +22,8 @@ export NVM_DIR="$HOME/.nvm"
 source "$HOME/perl5/perlbrew/etc/bashrc"
 perlbrew use perl-5.34.0
 
+export RUSTUP_TOOLCHAIN="stable"
+
 #source "$HOME/.cargo/env"
 
 # zmodload zsh/zprof
