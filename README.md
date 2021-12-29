@@ -2,8 +2,8 @@
 
 ## Required applications
 
-* `i3wm`/`i3-gaps`
-  * `i3status-rust`
+* `sway`
+  * `waybar`
 * `rofi`
   * `rofi-power-menu`
 * `gnome-keyring`
