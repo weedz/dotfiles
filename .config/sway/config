@@ -136,8 +136,7 @@ bindsym XF86AudioPlay exec playerctl play-pause --player=spotify
 bindsym XF86AudioNext exec playerctl next --player=spotify
 bindsym XF86AudioPrev exec playerctl previous --player=spotify
 
-set $menu "rofi -show combi -combi-modi drun,power-menu:rofi-power-menu -theme Arc-Dark -icon-theme Papirus -show-icons"
-bindsym $mod+Tab exec "~/.config/rofi/scripts/wayland_windows.sh"
+set $menu "rofi -show combi -combi-modi window:~/.config/rofi/scripts/wayland_windows.sh,drun,power-menu:rofi-power-menu -theme Arc-Dark -icon-theme Papirus -show-icons"
 
 focus_follows_mouse no
 workspace_layout tabbed
