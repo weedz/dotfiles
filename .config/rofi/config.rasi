@@ -1,5 +1,6 @@
 configuration {
-	modi: "window,run,ssh,combi";
+  combi-modi: [window,drun];
+	modi: [run,ssh,combi];
 /*	font: "mono 12";*/
 /*	location: 0;*/
 /*	yoffset: 0;*/

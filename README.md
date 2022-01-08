@@ -2,17 +2,18 @@
 
 ## Required applications
 
-* `dunst` (notifications)
+* `mako` (notifications)
 * `sway`
   * `waybar`
+    * [`mediaplayer`](https://github.com/Alexays/Waybar/blob/master/resources/custom_modules/mediaplayer.py) plugin from waybar repository
 * `rofi`
   * `rofi-power-menu`
 * `gnome-keyring`
 * `polkit-gnome`
 * probably gnome?
-* `dex`
 * `zsh`
 * `playerctl` (to handle media keys)
+* `Clipman` to handle clipboard. Does not always work flawlessly between sway/wayland/xwayland
 
 Font: `JetBrainsMonoNL Nerd Font Mono` https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/NoLigatures/Regular
 
@@ -21,6 +22,9 @@ Font: `JetBrainsMonoNL Nerd Font Mono` https://github.com/ryanoasis/nerd-fonts/t
 * `lxappearance`
 * `gtk-chtheme`
 
+## JAVA
+
+Java applications might need `env GDK_BACKEND=x11`
 
 ## Set default application
 
