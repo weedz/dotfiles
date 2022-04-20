@@ -131,6 +131,12 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+# Notification daemon
+exec mako
+
+# Screen color temperature
+exec gammastep -l 58.924225:13.468643 -t 6500:4500
+
 # Media keys
 bindsym XF86AudioPlay exec playerctl play-pause --player=spotify
 bindsym XF86AudioNext exec playerctl next --player=spotify
@@ -167,7 +173,8 @@ input "type:pointer" {
     #pointer_accel 0.5
 }
 
-output "Acer Technologies XF270HU T78EE0048521" mode 2560x1440@144Hz adaptive_sync off
+# Set display mode and position (turn of adaptive sync, causes flickering)
+output "Acer Technologies XF270HU T78EE0048521" mode 2560x1440@144Hz adaptive_sync off pos 0 0
 output "Goldstar Company Ltd LG ULTRAGEAR 103NTNHGK295" mode 2560x1440@144Hz adaptive_sync off
 
 include /etc/sway/config.d/*

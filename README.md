@@ -2,7 +2,7 @@
 
 ## Required applications
 
-* `mako` (notifications)
+* `mako` - notifications
 * `sway`
   * `waybar`
     * [`mediaplayer`](https://github.com/Alexays/Waybar/blob/master/resources/custom_modules/mediaplayer.py) plugin from waybar repository
@@ -12,8 +12,9 @@
 * `polkit-gnome`
 * probably gnome?
 * `zsh`
-* `playerctl` (to handle media keys)
-* `Clipman` to handle clipboard. Does not always work flawlessly between sway/wayland/xwayland
+* `playerctl` - Handle media keys
+* `Clipman` - Handle clipboard. Does not always work flawlessly between sway/wayland/xwayland
+* `gammastep` - Controls the monitor color temperature
 
 Font: `JetBrainsMonoNL Nerd Font Mono` https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/NoLigatures/Regular
 

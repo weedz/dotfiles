@@ -29,8 +29,8 @@
         "format": "{:%Y-%m-%d %H:%M}"
     },
     "cpu": {
-        "format": "{load} {usage}% ",
-        "tooltip": false
+        "format": "{usage}% ",
+        "tooltip": true
     },
     "memory": {
         "format": "{}% "

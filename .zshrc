@@ -5,6 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# precmd () {print -Pn "\e]0;Terminal - %~\a"}
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
@@ -20,7 +22,7 @@ export NVM_DIR="$HOME/.nvm"
 
 
 source "$HOME/perl5/perlbrew/etc/bashrc"
-perlbrew use perl-5.34.0
+perlbrew use perl-5.34.1
 
 export RUSTUP_TOOLCHAIN="stable"
 
@@ -33,7 +35,9 @@ skip_global_compinit=1
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
-alias ls="ls --color"
+# alias ls="ls --color"
+alias ls="exa"
+alias cat="bat"
 alias ssh="kitty +kitten ssh"
 
 # alias node="unalias node; unalias npm; nvm use default ; node $@"
@@ -54,6 +58,8 @@ export SAVEHIST=10000
 setopt inc_append_history
 
 zstyle ":completion:*" menu select
+# zstyle ':completion:*' special-dirs true
+zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(..)'
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -92,7 +98,3 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# tabtab source for packages
-# uninstall by removing these lines
-#[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
