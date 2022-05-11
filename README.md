@@ -6,14 +6,12 @@
 * `sway`
   * `waybar`
     * [`mediaplayer`](https://github.com/Alexays/Waybar/blob/master/resources/custom_modules/mediaplayer.py) plugin from waybar repository
-* `rofi`
-  * `rofi-power-menu`
+* `wofi`
 * `gnome-keyring`
 * `polkit-gnome`
-* probably gnome?
 * `zsh`
 * `playerctl` - Handle media keys
-* `Clipman` - Handle clipboard. Does not always work flawlessly between sway/wayland/xwayland
+* `clipman` - Handle clipboard. Does not always work flawlessly between sway/wayland/xwayland
 * `gammastep` - Controls the monitor color temperature
 
 Font: `JetBrainsMonoNL Nerd Font Mono` https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/NoLigatures/Regular
@@ -22,6 +20,7 @@ Font: `JetBrainsMonoNL Nerd Font Mono` https://github.com/ryanoasis/nerd-fonts/t
 
 * `lxappearance`
 * `gtk-chtheme`
+* `gsettings set org.gnome.desktop.interface gtk-theme <theme>`
 
 ## JAVA
 
@@ -31,4 +30,4 @@ Java applications might need `env GDK_BACKEND=x11`
 
 Install `handlr-bin` and `xdg-utils-handlr` (to replace `xdg-open`). Should just work.
 
-Make sure to handle `inode/directory`.
+Make sure to handle `inode/directory`. Example for the nemo file manager: `handlr set inode/directory nemo.desktop`
