@@ -142,7 +142,8 @@ bindsym XF86AudioPlay exec playerctl play-pause --player=spotify
 bindsym XF86AudioNext exec playerctl next --player=spotify
 bindsym XF86AudioPrev exec playerctl previous --player=spotify
 
-set $menu "~/.config/wofi/scripts/show.sh"
+set $menu "rofi -show combi -combi-modi window:~/.config/rofi/scripts/wayland_windows.sh,drun -theme Arc-Dark -icon-theme Papirus -show-icons"
+# set $menu "~/.config/wofi/scripts/show.sh"
 
 focus_follows_mouse no
 focus_on_window_activation none
@@ -155,7 +156,8 @@ font pango:JetBrainsMonoNL Nerd Font Mono 10
 # Clipboard
 exec wl-paste -t text --watch clipman store --max-items=50
 exec wl-paste -p -t text --watch clipman store --max-items=50 -P --histpath="~/.local/share/clipman-primary.json"
-bindsym $mod+h exec clipman pick -t wofi
+bindsym $mod+h exec clipman pick -t rofi -T"-theme Arc-Dark"
+# bindsym $mod+h exec clipman pick -t wofi
 
 #
 # Status Bar:
