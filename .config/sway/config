@@ -135,7 +135,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 exec mako
 
 # Screen color temperature
-exec gammastep -l 58.924225:13.468643 -t 6500:4500
+exec gammastep -l 58.924225:13.468643 -t 6500:3000
 
 # Media keys
 bindsym XF86AudioPlay exec playerctl play-pause --player=spotify
@@ -145,10 +145,13 @@ bindsym XF86AudioPrev exec playerctl previous --player=spotify
 set $menu "rofi -show combi -combi-modi window:~/.config/rofi/scripts/wayland_windows.sh,drun -theme Arc-Dark -icon-theme Papirus -show-icons"
 # set $menu "~/.config/wofi/scripts/show.sh"
 
+bindsym $mod+l exec swaylock
+
 focus_follows_mouse no
 focus_on_window_activation none
 workspace_layout tabbed
 tiling_drag disable
+hide_edge_borders smart
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 font pango:JetBrainsMonoNL Nerd Font Mono 10
@@ -158,6 +161,8 @@ exec wl-paste -t text --watch clipman store --max-items=50
 exec wl-paste -p -t text --watch clipman store --max-items=50 -P --histpath="~/.local/share/clipman-primary.json"
 bindsym $mod+h exec clipman pick -t rofi -T"-theme Arc-Dark"
 # bindsym $mod+h exec clipman pick -t wofi
+
+bindsym $mod+Alt+s exec grim -g "$(slurp)"
 
 #
 # Status Bar:
@@ -177,7 +182,14 @@ input "type:pointer" {
 }
 
 # Set display mode and position (turn of adaptive sync, causes flickering)
-output "Acer Technologies XF270HU T78EE0048521" mode 2560x1440@144Hz adaptive_sync off pos 0 0
-output "Goldstar Company Ltd LG ULTRAGEAR 103NTNHGK295" mode 2560x1440@144Hz adaptive_sync off
+output "Acer Technologies XF270HU T78EE0048521" {
+    mode 2560x1440@144Hz
+    adaptive_sync off
+    pos 0 0
+}
+output "Goldstar Company Ltd LG ULTRAGEAR 103NTNHGK295" {
+    mode 2560x1440@144Hz
+    adaptive_sync off
+}
 
 include /etc/sway/config.d/*
