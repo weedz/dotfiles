@@ -192,4 +192,13 @@ output "Goldstar Company Ltd LG ULTRAGEAR 103NTNHGK295" {
     adaptive_sync off
 }
 
+output "*" bg /home/weedz/Pictures/wallpapers/wallpaper fill
+# output * bg #000000 solid_color
+
+# Set transparency for some programs
+for_window [class="Code"] opacity 0.95
+for_window [class="git-good"] opacity 0.95
+for_window [class="Spotify"] opacity 0.9
+for_window [app_id="nemo"] opacity 0.9
+
 include /etc/sway/config.d/*
