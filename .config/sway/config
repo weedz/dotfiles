@@ -167,6 +167,7 @@ bindsym $mod+h exec clipman pick -t rofi -T"-theme Arc-Dark"
 # bindsym $mod+h exec clipman pick -t wofi
 
 bindsym $mod+Alt+s exec grim -g "$(slurp)"
+bindsym $mod+Alt+p exec grim
 
 #
 # Status Bar:
