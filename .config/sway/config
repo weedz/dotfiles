@@ -1,7 +1,11 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Your preferred terminal emulator
 set $term kitty
+
+# Music player+
+set $music_player spotify
 
 ### Key bindings
 #
@@ -138,9 +142,9 @@ exec mako
 exec gammastep -l 58.924225:13.468643 -t 6500:3000
 
 # Media keys
-bindsym XF86AudioPlay exec playerctl play-pause --player=spotify
-bindsym XF86AudioNext exec playerctl next --player=spotify
-bindsym XF86AudioPrev exec playerctl previous --player=spotify
+bindsym XF86AudioPlay exec playerctl play-pause --player=$music_player
+bindsym XF86AudioNext exec playerctl next --player=$music_player
+bindsym XF86AudioPrev exec playerctl previous --player=$music_player
 
 set $menu "rofi -show combi -combi-modi window:~/.config/rofi/scripts/wayland_windows.sh,drun -theme Arc-Dark -icon-theme Papirus -show-icons"
 # set $menu "~/.config/wofi/scripts/show.sh"
@@ -196,6 +200,7 @@ output "*" bg /home/weedz/Pictures/wallpapers/wallpaper fill
 # output * bg #000000 solid_color
 
 # Set transparency for some programs
+
 for_window [class="Code"] opacity 0.95
 for_window [class="git-good"] opacity 0.95
 for_window [class="Spotify"] opacity 0.9
