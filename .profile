@@ -26,14 +26,20 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# `n` node version manager
+export N_PREFIX="$HOME/n"
+if [ -d "$N_PREFIX/bin" ] ; then
+    export PATH="$N_PREFIX/bin:$PATH"
+fi
 
-# # alias node='unalias node ; unalias npm ; nvm use default ; node $@'
-# # alias npm='unalias node ; unalias npm ; nvm use default ; npm $@'
+export VDPAU_DRIVER="radeonsi"
+
+export RUA_SUDO_COMMAND="doas"
 
 source "$HOME/perl5/perlbrew/etc/bashrc"
-perlbrew use perl-5.34.0
-# export PATH="/home/weedz/perl5/perlbrew/perls/perl-5.32.1/bin:$PATH"
+perlbrew use perl-5.36.0
+
 # source "$HOME/.cargo/env"
+
+alias sudo="doas"
+alias sudoedit="doas rnano"
