@@ -202,12 +202,13 @@ output "*" bg /home/weedz/Pictures/wallpapers/wallpaper fill
 
 # Set transparency for some programs
 
-for_window [class="Code"] opacity 0.95
+# for_window [class="Code"] opacity 0.95
 # TODO: vscode needs to set app.setDesktopName()
+for_window [app_id="code-url-handler"] opacity 0.95
 # for_window [app_id="vscode"] opacity 0.95
 # x11: for_window [class="git-good"] opacity 0.95
 # wayland! app.setDesktopName("git-good")
-for_window [app_id="git-good"] opacity 0.95
+for_window [app_id="git-good"] opacity 0.9
 for_window [class="Spotify"] opacity 0.9
 for_window [app_id="nemo"] opacity 0.9
 for_window [app_id="kitty"] opacity 0.95
