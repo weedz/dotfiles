@@ -6,5 +6,5 @@ if [ -z "$@" ]; then
 else
   # Change to selected window
   con_id=${@%%$'\t'*}
-  swaymsg -rq [con_id="$con_id"] focus
+  swaymsg -rq "[con_id=$con_id]" focus
 fi;
