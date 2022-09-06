@@ -46,7 +46,7 @@
 
 /* The whole bar */
 #waybar {
-    background: #323232;
+    background: #000;
     color: white;
     /* font-family: Cantarell, Noto Sans, sans-serif; */
     font-family: 'DejaVu Sans Mono';

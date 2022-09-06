@@ -13,6 +13,7 @@
     },
     "custom/spotify": {
         "exec": "/usr/bin/python3 $HOME/.config/waybar/modules/mediaplayer.py --player spotify",
+        "exec-if": "pgrep spotify",
         "max-length": 60,
         "format": "{}  ",
         "escape": true,
