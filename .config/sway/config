@@ -41,6 +41,9 @@ set $music_player spotify
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
+    bindsym $mod+Tab focus right
+    bindsym $mod+Shift+Tab focus left
+
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
@@ -136,7 +139,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Notification daemon
-exec mako
+exec mako --layer=overlay
 
 # Screen color temperature
 exec gammastep -l 58.924225:13.468643 -t 6500:3000
@@ -161,9 +164,10 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 font pango:JetBrainsMonoNL Nerd Font Mono 10
 
 # Clipboard
-exec wl-paste -t text --watch clipman store --max-items=50
-exec wl-paste -p -t text --watch clipman store --max-items=50 -P --histpath="~/.local/share/clipman-primary.json"
-bindsym $mod+h exec clipman pick -t rofi -T"-theme Arc-Dark"
+# `clipman` seems to crash the GPU when copying item data from PoE??
+#exec wl-paste -t text --watch clipman store --max-items=50
+#exec wl-paste -p -t text --watch clipman store --max-items=50 -P --histpath="~/.local/share/clipman-primary.json"
+#bindsym $mod+h exec clipman pick -t rofi -T"-theme Arc-Dark"
 # bindsym $mod+h exec clipman pick -t wofi
 
 bindsym $mod+Alt+s exec grim -g "$(slurp)"
@@ -186,7 +190,7 @@ input "type:pointer" {
     #pointer_accel 0.5
 }
 
-# Set display mode and position (turn of adaptive sync, causes flickering)
+# Set display mode and position (turn off adaptive sync, causes flickering)
 output "Acer Technologies XF270HU T78EE0048521" {
     mode 2560x1440@144Hz
     adaptive_sync off
@@ -202,7 +206,7 @@ output "*" bg /home/weedz/Pictures/wallpapers/wallpaper fill
 
 # Set transparency for some programs
 
-# for_window [class="Code"] opacity 0.95
+for_window [class="Code"] opacity 0.95
 # TODO: vscode needs to set app.setDesktopName()
 for_window [app_id="code-url-handler"] opacity 0.95
 # for_window [app_id="vscode"] opacity 0.95
