@@ -1,11 +1,4 @@
-zmodload zsh/zprof
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+#zmodload zsh/zprof
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -37,13 +30,6 @@ zinit for \
     light-mode  zsh-users/zsh-autosuggestions \
     light-mode  zdharma-continuum/fast-syntax-highlighting \
                 zdharma-continuum/history-search-multi-word
-    # light-mode pick"async.zsh" src"pure.zsh" \
-    #             sindresorhus/pure
-
-# zinit ice depth=1; zinit light romkatv/powerlevel10k
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Skip the not really helping Ubuntu global compinit
 skip_global_compinit=1
