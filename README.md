@@ -21,11 +21,17 @@
 
 Font: `JetBrainsMonoNL Nerd Font Mono` https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/NoLigatures/Regular
 
-## Set gtk theme
+## GTK theme
 
 * `lxappearance`
 * `gtk-chtheme`
 * `gsettings set org.gnome.desktop.interface gtk-theme <theme>`
+
+## Qt theme
+
+* `kvantum` (https://github.com/tsujan/Kvantum)
+* `qt5ct`
+* `qt6ct`
 
 ## JAVA
 
