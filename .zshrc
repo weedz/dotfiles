@@ -89,10 +89,6 @@ if [ -d "$N_PREFIX/bin" ] ; then
     export PATH="$N_PREFIX/bin:$PATH"
 fi
 
-# We get this from .profile
-# source "$HOME/perl5/perlbrew/etc/bashrc"
-# perlbrew use perl-5.36.0
-
 export RUSTUP_TOOLCHAIN="stable"
 
 #source "$HOME/.cargo/env"

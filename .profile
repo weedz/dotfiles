@@ -67,9 +67,6 @@ export VDPAU_DRIVER="radeonsi"
 
 export RUA_SUDO_COMMAND="doas"
 
-source "$HOME/perl5/perlbrew/etc/bashrc"
-perlbrew use perl-5.36.0
-
 # source "$HOME/.cargo/env"
 
 alias sudo="doas"
