@@ -99,6 +99,11 @@ alias cat="bat"
 alias ssh="kitty +kitten ssh"
 alias cd="z"
 
+# Use `fzf` to `cd` into a directory
+function c {
+    cd $(fd --type=directory | fzf)
+}
+
 # Use `doas` instead of `sudo`
 alias sudo="doas"
 alias sudoedit="doas rnano"
@@ -124,3 +129,6 @@ export PATH="$PNPM_HOME:$PATH"
 
 export DENO_INSTALL="/home/weedz/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+export EDITOR="nvim"
+export VISUAL="code"
