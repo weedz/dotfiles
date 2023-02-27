@@ -27,58 +27,13 @@ export SAM_CLI_TELEMETRY=0
 export STNOUPGRADE=1
 export STRIPE_CLI_TELEMETRY_OPTOUT=1
 
-#zmodload zsh/zprof
-
-### Added by Zinit's installer
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.zinit/bin" && \
-        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
-        print -P "%F{160}▓▒░ The clone has failed.%f%b"
-fi
-
-source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
-
-### End of Zinit's installer chunk
-
-zinit snippet OMZP::command-not-found
-
-zinit for \
-    light-mode  zsh-users/zsh-completions \
-    light-mode  zsh-users/zsh-autosuggestions \
-    light-mode  zdharma-continuum/fast-syntax-highlighting \
-                zdharma-continuum/history-search-multi-word
-
-# Skip the not really helping Ubuntu global compinit
-skip_global_compinit=1
-
-setopt promptsubst
-
-export HISTFILE=~/.zsh_history
-export HISTSIZE=10000
-export SAVEHIST=10000
-setopt inc_append_history
-
-autoload -U compinit; compinit
-zstyle ":completion:*" menu select
-# zstyle ':completion:*' special-dirs true
-zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(..)'
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
+
+# Add cargo "installed" packages to PATH
+PATH="$HOME/.cargo/bin:$PATH"
 
 # Add go and "installed" go packages to PATH
 # PATH="$HOME/bin/go/bin:$HOME/go/bin:$PATH"
@@ -101,7 +56,7 @@ alias cd="z"
 
 # Use `fzf` to `cd` into a directory
 function c {
-    cd $(fd --type=directory | fzf)
+    cd $(fd --hidden --type=directory | fzf)
 }
 
 # Use `doas` instead of `sudo`
@@ -116,9 +71,6 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 
-# eval "$(starship init zsh)"
-source <(/usr/bin/starship init zsh --print-full-init)
-
 source /home/weedz/.config/broot/launcher/bash/br
 eval "$(zoxide init zsh)"
 
@@ -132,3 +84,25 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 
 export EDITOR="nvim"
 export VISUAL="code"
+
+eval "$(sheldon source)"
+
+#zmodload zsh/zprof
+
+# Skip the not really helping Ubuntu global compinit
+skip_global_compinit=1
+
+setopt promptsubst
+
+export HISTFILE=~/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=10000
+setopt inc_append_history
+
+autoload -U compinit; compinit
+zstyle ":completion:*" menu select
+# zstyle ':completion:*' special-dirs true
+zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(..)'
+
+# eval "$(starship init zsh)"
+source <(/usr/bin/starship init zsh --print-full-init)
