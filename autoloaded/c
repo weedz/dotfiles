@@ -1,0 +1,2 @@
+# Use `fzf` to `cd` into a directory
+cd $(fd --hidden --type=directory | fzf)

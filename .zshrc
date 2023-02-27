@@ -27,9 +27,11 @@ export SAM_CLI_TELEMETRY=0
 export STNOUPGRADE=1
 export STRIPE_CLI_TELEMETRY_OPTOUT=1
 
+#zmodload zsh/zprof
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin:$PATH"
+    PATH="$HOME/bin:$PATH"
 fi
 
 # Add cargo "installed" packages to PATH
@@ -41,7 +43,7 @@ PATH="$HOME/.cargo/bin:$PATH"
 # `n` node version manager
 export N_PREFIX="$HOME/n"
 if [ -d "$N_PREFIX/bin" ] ; then
-    export PATH="$N_PREFIX/bin:$PATH"
+    PATH="$N_PREFIX/bin:$PATH"
 fi
 
 export RUSTUP_TOOLCHAIN="stable"
@@ -54,10 +56,6 @@ alias cat="bat"
 alias ssh="kitty +kitten ssh"
 alias cd="z"
 
-# Use `fzf` to `cd` into a directory
-function c {
-    cd $(fd --hidden --type=directory | fzf)
-}
 
 # Use `doas` instead of `sudo`
 alias sudo="doas"
@@ -87,8 +85,6 @@ export VISUAL="code"
 
 eval "$(sheldon source)"
 
-#zmodload zsh/zprof
-
 # Skip the not really helping Ubuntu global compinit
 skip_global_compinit=1
 
@@ -99,10 +95,20 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 setopt inc_append_history
 
-autoload -U compinit; compinit
+fpath=($fpath autoloaded)
+autoload -Uz c
+autoload -Uz man
+
+autoload -Uz compinit; compinit
+
+
 zstyle ":completion:*" menu select
 # zstyle ':completion:*' special-dirs true
 zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(..)'
 
 # eval "$(starship init zsh)"
 source <(/usr/bin/starship init zsh --print-full-init)
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
