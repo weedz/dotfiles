@@ -114,6 +114,7 @@ if [[ $(date +'%j') != $(zstat +mtime -F '%j' ~/.zcompdump) ]]; then
     zrecompile -p \
         -R ~/.zshrc -- \
         -M ~/.zcompdump
+  touch ~/.zcompdump
 fi
 compinit -C
 
