@@ -34,7 +34,7 @@ export SAM_CLI_TELEMETRY=0
 export STNOUPGRADE=1
 export STRIPE_CLI_TELEMETRY_OPTOUT=1
 
-#zmodload zsh/zprof
+# zmodload zsh/zprof
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
@@ -106,7 +106,16 @@ fpath=($fpath autoloaded)
 autoload -Uz c
 autoload -Uz man
 
-autoload -Uz compinit; compinit
+autoload -Uz compinit;
+if [[ $(date +'%j') != $(zstat +mtime -F '%j' ~/.zcompdump) ]]; then
+  echo "new zcompdump"
+  compinit
+  autoload -U zrecompile
+    zrecompile -p \
+        -R ~/.zshrc -- \
+        -M ~/.zcompdump
+fi
+compinit -C
 
 
 zstyle ":completion:*" menu select
