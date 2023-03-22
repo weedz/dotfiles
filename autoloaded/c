@@ -1,2 +1,5 @@
 # Use `fzf` to `cd` into a directory
-cd $(fd --hidden --type=directory | fzf)
+DIR=$(fd --hidden --type=directory | fzf)
+if [ $? -eq 0 ]; then
+cd "$DIR"
+fi
