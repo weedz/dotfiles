@@ -1,4 +1,4 @@
-# Logo key. Use Mod1 for Alt.
+# Logo key. Use Mod1 for Alt
 set $mod Mod4
 
 # Your preferred terminal emulator
@@ -201,6 +201,27 @@ output "Goldstar Company Ltd LG ULTRAGEAR 103NTNHGK295" {
     adaptive_sync off
 }
 
+# focused
+#    border:     #990257
+#    background: #990257
+#    text:       #ffffff
+
+# focused_inactive
+#    border:     #990257
+#    background: #BF026D
+#    text:       #333333
+
+# unfocused
+#    border:     #990257
+#    background: #590133
+#    text:       #cccccc
+
+# format: "BORDER" "BACKGROUND" "TEXT"
+
+client.focused          "#990257" "#BF026D" "#ffffff"
+client.focused_inactive "#990257" "#990257" "#ffffff"
+client.unfocused        "#990257" "#590133" "#cccccc"
+
 output "*" bg /home/weedz/Pictures/wallpapers/wallpaper fill
 # output * bg #000000 solid_color
 
@@ -216,5 +237,7 @@ for_window [app_id="git-good"] opacity 0.9
 for_window [class="Spotify"] opacity 0.9
 for_window [app_id="nemo"] opacity 0.9
 for_window [app_id="kitty"] opacity 0.95
+
+for_window [app_id="qalculate-gtk"] floating enable
 
 include /etc/sway/config.d/*

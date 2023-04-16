@@ -97,10 +97,12 @@
 
 #clock {
     font-weight: bold;
+    border-bottom: 1px solid #990257;
 }
 
 #cpu {
   /* No styles */
+  border-bottom: 1px solid #990257;
 }
 
 #cpu.warning {
@@ -115,6 +117,7 @@
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    border-bottom: 1px solid #990257;
 }
 
 #memory.warning {
@@ -144,6 +147,7 @@
 
 #pulseaudio {
     /* No styles */
+    border-bottom: 1px solid #990257;
 }
 
 #pulseaudio.muted {
@@ -156,6 +160,7 @@
 
 #temperature {
     /* No styles */
+    border-bottom: 1px solid #990257;
 }
 
 #temperature.critical {
@@ -180,9 +185,18 @@
 }
 
 #workspaces button.focused {
-    border-color: #4c7899;
+    /* border-color: #4c7899;
     color: white;
-    background-color: #285577;
+    background-color: #285577; */
+
+    border-color: #990257;
+    color: white;
+    background: #590133;
+}
+#workspaces button.focused:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: #590133;
 }
 
 #workspaces button.urgent {
