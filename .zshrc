@@ -76,8 +76,7 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 
-source /home/weedz/.config/broot/launcher/bash/br
-eval "$(zoxide init zsh)"
+#source /home/weedz/.config/broot/launcher/bash/br
 
 # pnpm
 export PNPM_HOME="/home/weedz/.local/share/pnpm"
@@ -122,6 +121,8 @@ compinit -C
 zstyle ":completion:*" menu select
 # zstyle ':completion:*' special-dirs true
 zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(..)'
+
+eval "$(zoxide init zsh)"
 
 # tabtab source for packages
 # uninstall by removing these lines
