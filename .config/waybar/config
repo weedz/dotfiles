@@ -4,21 +4,37 @@
     "height": 30, // Waybar height (to be removed for auto height)
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
+    "modules-left": ["sway/workspaces", "sway/mode", "custom/mediaplayer"],
+    // "modules-left": ["hyprland/workspaces", "custom/mediaplayer"],
+
     "modules-center": ["sway/window"],
+    // "modules-center": ["hyprland/window"],
+
     "modules-right": ["pulseaudio", "cpu", "memory", "temperature", "temperature#gpu", "clock", "tray"],
     // Modules configuration
+
     "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+       "format": "<span style=\"italic\">{}</span>"
     },
-    "custom/spotify": {
-        "exec": "/usr/bin/python3 $HOME/.config/waybar/modules/mediaplayer.py --player spotify",
-        "exec-if": "pgrep spotify",
+    // "hyprland/window": {
+    //     "max-length": 200,
+    //     "separate-outputs": true
+    // },
+    // "hyprland/workspaces": {
+    //     "format": "{icon}",
+    //     "on-scroll-up": "hyprctl dispatch workspace e+1",
+    //     "on-scroll-down": "hyprctl dispatch workspace e-1",
+    //     "on-click": "activate"
+    // },
+
+    "custom/mediaplayer": {
+        "exec": "/usr/bin/python3 $HOME/.config/waybar/modules/mediaplayer.py --player ncspot",
+        "exec-if": "pgrep ncspot",
         "max-length": 60,
         "format": "{}  ",
         "escape": true,
         "return-type": "json",
-        "on-click": "playerctl --player=spotify play-pause"
+        "on-click": "playerctl --player=ncspot play-pause"
     },
     "tray": {
         "spacing": 10

@@ -27,17 +27,25 @@ defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 github = "zdharma-continuum/fast-syntax-highlighting"
 apply = ["defer"]
 
-[plugins.history-search-multi-word]
-github = "zdharma-continuum/history-search-multi-word"
-apply = ["defer"]
+# [plugins.history-search-multi-word]
+# github = "zdharma-continuum/history-search-multi-word"
+# apply = ["defer"]
+
+# [plugins.zsh-autocomplete]
+# github = "marlonrichert/zsh-autocomplete"
+# apply = ["defer"]
 
 [plugins.zsh-autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
 apply = ["defer"]
 
-[plugins.zsh-completions]
-github = "zsh-users/zsh-completions"
-apply = ["defer"]
+# [plugins.zsh-completions]
+# github = "zsh-users/zsh-completions"
+# apply = ["defer"]
+
+# [plugins.zsh-title]
+# github = "olets/zsh-window-title"
+# apply = ["defer"]
 
 # For example:
 #

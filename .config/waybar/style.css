@@ -56,7 +56,7 @@
 /* Each module */
 #clock,
 #cpu,
-#custom-spotify,
+#custom-mediaplayer,
 #memory,
 #mode,
 #pulseaudio,
@@ -154,7 +154,7 @@
     /* No styles */
 }
 
-#custom-spotify {
+#custom-mediaplayer {
     color: rgb(102, 220, 105);
 }
 
@@ -184,7 +184,8 @@
     color: #888888;
 }
 
-#workspaces button.focused {
+#workspaces button.focused,
+#workspaces button.active {
     /* border-color: #4c7899;
     color: white;
     background-color: #285577; */

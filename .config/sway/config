@@ -5,7 +5,7 @@ set $mod Mod4
 set $term kitty
 
 # Music player+
-set $music_player spotify
+set $music_player ncspot
 
 ### Key bindings
 #
@@ -160,7 +160,7 @@ workspace_layout tabbed
 tiling_drag disable
 hide_edge_borders smart
 
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec  /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 font pango:JetBrainsMonoNL Nerd Font Mono 10
 
 # Clipboard
@@ -170,8 +170,16 @@ font pango:JetBrainsMonoNL Nerd Font Mono 10
 #bindsym $mod+h exec clipman pick -t rofi -T"-theme Arc-Dark"
 # bindsym $mod+h exec clipman pick -t wofi
 
+#bindsym p exec grim -g "$(slurp)"
+
 bindsym $mod+Alt+s exec grim -g "$(slurp)"
 bindsym $mod+Alt+p exec grim
+
+# "magnifier adjacent"
+# bindsym $mod+Alt+z exec grim - | imv -
+
+# open screenshot with gimp
+bindsym $mod+Alt+z exec _cd=$(date +%s) && grim "/tmp/${_cd}_grim.png" && gimp --new-instance "/tmp/${_cd}_grim.png"
 
 #
 # Status Bar:
@@ -223,7 +231,7 @@ client.focused_inactive "#990257" "#990257" "#ffffff"
 client.unfocused        "#990257" "#590133" "#cccccc"
 
 output "*" bg /home/weedz/Pictures/wallpapers/wallpaper fill
-# output * bg #000000 solid_color
+#output * bg #000000 solid_color
 
 # Set transparency for some programs
 
@@ -236,7 +244,7 @@ for_window [app_id="code-url-handler"] opacity 0.95
 for_window [app_id="git-good"] opacity 0.9
 for_window [class="Spotify"] opacity 0.9
 for_window [app_id="nemo"] opacity 0.9
-for_window [app_id="kitty"] opacity 0.95
+# for_window [app_id="kitty"] opacity 0.95
 
 for_window [app_id="qalculate-gtk"] floating enable
 

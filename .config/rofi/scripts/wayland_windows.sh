@@ -8,3 +8,14 @@ else
   con_id=${@%%$'\t'*}
   swaymsg -rq "[con_id=$con_id]" focus
 fi;
+
+
+# if [ -z "$@" ]; then
+#   # Show windows from all outputs. Displayed as "[address]\t[window_title]""
+#   hyprctl clients -j | jq -r '.[] | select(.title!="") | .address + "\t" + .title'
+# else
+#   # Change to selected window
+#   addr_id=${@%%$'\t'*}
+#   #echo "$addr_id"
+#   hyprctl dispatch focuswindow "address:$addr_id" &>/dev/null
+# fi;
