@@ -16,7 +16,7 @@
 * [light](https://archlinux.org/packages/community/x86_64/light/) - Change screen brightness
 * [kitty](https://github.com/kovidgoyal/kitty)
 * [yazi](https://github.com/sxyazi/yazi) - TUI file manager
-* `exa` - ls "replacement"
+* [eza](https://github.com/eza-community/eza) - ls "replacement"
 * `bat` - cat "replacement"
 * [zoxide](https://github.com/ajeetdsouza/zoxide) - better `cd` command
 * `wl-clipboard` - Command-line copy/paste utilities for Wayland
