@@ -14,9 +14,8 @@
 * `playerctl` - Handle media keys
 * `gammastep` - Controls the monitor color temperature
 * [light](https://archlinux.org/packages/community/x86_64/light/) - Change screen brightness
-* `broot` (`br`) - https://github.com/Canop/broot
-* [Starship](https://starship.rs/)
 * [kitty](https://github.com/kovidgoyal/kitty)
+* [yazi](https://github.com/sxyazi/yazi) - TUI file manager
 * `exa` - ls "replacement"
 * `bat` - cat "replacement"
 * [zoxide](https://github.com/ajeetdsouza/zoxide) - better `cd` command
