@@ -21,6 +21,7 @@
 * `bat` - cat "replacement"
 * [zoxide](https://github.com/ajeetdsouza/zoxide) - better `cd` command
 * `wl-clipboard` - Command-line copy/paste utilities for Wayland
+* `neovim` (btw :neckbeard:)
 
 Font: `JetBrainsMonoNL Nerd Font Mono` https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/NoLigatures/Regular
 
