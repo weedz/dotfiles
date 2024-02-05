@@ -1,5 +1,7 @@
 # dotfiles
 
+Setup with `stow`. Clone this repo into `$HOME/dotfiles`, cd into `dotfiles` and then run `stow .`. To sync changes into this repo you can run `stow --adopt .`.
+
 ## Required applications
 
 * [sheldon](https://github.com/rossmacarthur/sheldon#cargo) - Shell plugin manager. Install with `cargo install sheldon`
