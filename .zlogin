@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+export TERMINAL=/usr/bin/kitty
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
 # Execute code in the background to not affect the current session
 (
     autoload -U zrecompile

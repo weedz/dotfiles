@@ -82,9 +82,6 @@ export PNPM_HOME="/home/weedz/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
-export EDITOR="nvim"
-export VISUAL="code"
-
 # Skip the not really helping Ubuntu global compinit
 skip_global_compinit=1
 

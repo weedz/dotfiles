@@ -39,28 +39,32 @@ export STRIPE_CLI_TELEMETRY_OPTOUT=1
 
 export XDG_CURRENT_DESKTOP=sway
 
+export TERMINAL=/usr/bin/kitty
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
+	# include .bashrc if it exists
+	if [ -f "$HOME/.bashrc" ]; then
+		. "$HOME/.bashrc"
+	fi
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+if [ -d "$HOME/bin" ]; then
+	PATH="$HOME/bin:$PATH"
 fi
 
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+if [ -d "$HOME/.local/bin" ]; then
+	PATH="$HOME/.local/bin:$PATH"
 fi
 
 # `n` node version manager
 export N_PREFIX="$HOME/n"
-if [ -d "$N_PREFIX/bin" ] ; then
-    export PATH="$N_PREFIX/bin:$PATH"
+if [ -d "$N_PREFIX/bin" ]; then
+	export PATH="$N_PREFIX/bin:$PATH"
 fi
 
 export VDPAU_DRIVER="radeonsi"
