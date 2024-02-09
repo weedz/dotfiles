@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+alias vim="nvim"
 export TERMINAL=/usr/bin/kitty
 export VISUAL=nvim
 export EDITOR="$VISUAL"
