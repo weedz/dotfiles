@@ -3,13 +3,6 @@
 -- Add any additional keymaps here
 
 local attempt = require("attempt")
-local wk = require("which-key")
-
-wk.register({
-    ["<leader>a"] = {
-        name = "+attempt",
-    },
-})
 vim.keymap.set("n", "<leader>an", attempt.new_select, { desc = "New (with extension)" }) -- new attempt, selecting extension
 vim.keymap.set("n", "<leader>ai", attempt.new_input_ext, { desc = "New" }) -- new attempt, inputing extension
 vim.keymap.set("n", "<leader>ar", attempt.run, { desc = "Run" }) -- run attempt
