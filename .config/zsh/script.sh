@@ -25,7 +25,7 @@ function ya() {
 function c() {
 	# Use `fzf` to `cd` into a directory
 	#DIR=$(fd --hidden --no-ignore --type=directory | fzf)
-	DIR=$(fd --type=directory | fzf)
+	DIR=$(fd --type=directory --exclude='node_modules' --exclude='vendor' . ~/Documents/workspace/ | fzf)
 	if [ $? -eq 0 ]; then
 		cd "$DIR"
 	fi
