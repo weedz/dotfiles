@@ -5,7 +5,7 @@ return {
         run = {
             ts = { "w", "!tsx %:p" },
         },
-        ext_options = { "ts", "js", "lua", "sh", "py" },
+        ext_options = { "ts", "js", "lua", "sh", "py", "rs", "c", "go" },
     },
     keys = {
         { "<leader>a", desc = "+attempt" },
