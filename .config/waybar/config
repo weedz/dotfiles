@@ -4,17 +4,29 @@
     "height": 30, // Waybar height (to be removed for auto height)
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/mediaplayer"],
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode",
+        "custom/mediaplayer"
+    ],
     // "modules-left": ["hyprland/workspaces", "custom/mediaplayer"],
-
-    "modules-center": ["sway/window"],
+    "modules-center": [
+        "sway/window"
+    ],
     // "modules-center": ["hyprland/window"],
-
-    "modules-right": ["pulseaudio", "cpu", "memory", "temperature", "temperature#gpu", "clock", "tray"],
+    "modules-right": [
+        "pulseaudio",
+        // "wireplumber",
+        "cpu",
+        "memory",
+        "temperature",
+        "temperature#gpu",
+        "clock",
+        "tray"
+    ],
     // Modules configuration
-
     "sway/mode": {
-       "format": "<span style=\"italic\">{}</span>"
+        "format": "<span style=\"italic\">{}</span>"
     },
     // "hyprland/window": {
     //     "max-length": 200,
@@ -26,7 +38,6 @@
     //     "on-scroll-down": "hyprctl dispatch workspace e-1",
     //     "on-click": "activate"
     // },
-
     "custom/mediaplayer": {
         "exec": "/usr/bin/python3 $HOME/.config/waybar/modules/mediaplayer.py --player ncspot",
         "exec-if": "pgrep ncspot",
@@ -43,21 +54,21 @@
         "format": "{:%Y-%m-%d %H:%M}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
-            "mode"          : "month",
-            "mode-mon-col"  : 3,
-            "weeks-pos"     : "left",
-            "on-scroll"     : 1,
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "left",
+            "on-scroll": 1,
             "on-click-right": "mode",
             "format": {
-                "months":     "<span color='#ffead3'><b>{}</b></span>",
-                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
             }
         },
         "on-click": "xdg-open https://calendar.google.com/calendar",
-        "actions":  {
+        "actions": {
             "on-click-right": "mode",
             "on-click-forward": "tz_up",
             "on-click-backward": "tz_down",
@@ -77,14 +88,22 @@
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
     },
     "temperature#gpu": {
         "hwmon-path": "/sys/class/hwmon/hwmon2/temp2_input",
         "critical-threshold": 100,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "gpu: {temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
     },
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
@@ -101,8 +120,17 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": [
+                "",
+                "",
+                ""
+            ]
         },
         "on-click": "pavucontrol"
-    }
+    },
+    // "wireplumber": {
+    //     "scroll-step": 5, // %, can be a float
+    //     "format": "{volume}% {icon}",
+    //     "on-click": "pavucontrol"
+    // }
 }
