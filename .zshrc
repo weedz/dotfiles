@@ -61,7 +61,6 @@ export RUSTUP_TOOLCHAIN="stable"
 alias ls="eza"
 alias cat="bat"
 #alias ssh="kitty +kitten ssh"
-alias cd="z"
 
 alias hist='print -z $(tac ~/.zsh_history | fzf)'
 
@@ -113,8 +112,6 @@ compinit -C
 
 zstyle ":completion:*" menu select
 zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(..)'
-
-eval "$(zoxide init zsh)"
 
 # tabtab source for packages
 # uninstall by removing these lines
