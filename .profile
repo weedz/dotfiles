@@ -40,8 +40,8 @@ export STRIPE_CLI_TELEMETRY_OPTOUT=1
 export XDG_CURRENT_DESKTOP=sway
 
 export TERMINAL=/usr/bin/kitty
-export VISUAL=nvim
-export EDITOR="$VISUAL"
+# export VISUAL=nvim
+# export EDITOR="$VISUAL"
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
