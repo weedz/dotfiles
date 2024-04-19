@@ -23,13 +23,9 @@ github = "romkatv/zsh-defer"
 [templates]
 defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 
-[plugins.fast-syntax-highlighting]
-github = "zdharma-continuum/fast-syntax-highlighting"
+[plugins.syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
 apply = ["defer"]
-
-# [plugins.history-search-multi-word]
-# github = "zdharma-continuum/history-search-multi-word"
-# apply = ["defer"]
 
 # [plugins.zsh-autocomplete]
 # github = "marlonrichert/zsh-autocomplete"
@@ -42,12 +38,3 @@ apply = ["defer"]
 # [plugins.zsh-completions]
 # github = "zsh-users/zsh-completions"
 # apply = ["defer"]
-
-# [plugins.zsh-title]
-# github = "olets/zsh-window-title"
-# apply = ["defer"]
-
-# For example:
-#
-# [plugins.base16]
-# github = "chriskempson/base16-shell"
