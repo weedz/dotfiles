@@ -47,6 +47,11 @@ PATH="$HOME/.cargo/bin:$PATH"
 # Add go and "installed" go packages to PATH
 # PATH="$HOME/bin/go/bin:$HOME/go/bin:$PATH"
 
+# pnpm
+export PNPM_HOME="/home/weedz/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
 # `n` node version manager
 export N_PREFIX="$HOME/n"
 if [ -d "$N_PREFIX/bin" ] ; then
@@ -75,11 +80,6 @@ bindkey "^[[1;5D" backward-word
 bindkey "^[[1;5C" forward-word
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
-
-# pnpm
-export PNPM_HOME="/home/weedz/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
 
 # Skip the not really helping Ubuntu global compinit
 skip_global_compinit=1
