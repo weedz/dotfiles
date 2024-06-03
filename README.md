@@ -26,6 +26,34 @@ Setup with `stow`. Clone this repo into `$HOME/dotfiles`, cd into `dotfiles` and
 
 Font: `JetBrainsMonoNL Nerd Font Mono` https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/NoLigatures/Regular
 
+## Git config
+
+```gitconfig
+[pull]
+	rebase = true
+[core]
+	editor = nvim
+	commitGraph = true
+[commit]
+	gpgSign = true
+[merge]
+	conflictstyle = diff3
+[tag]
+	forceSignAnnotated = true
+[gpg]
+	program = gpg
+[diff]
+	colorMoved = zebra
+[rebase]
+	updateRefs = true
+[credential]
+	credentialStore = gpg
+	helper = /usr/lib/git-core/git-credential-libsecret
+[rerere]
+	enabled = true
+
+```
+
 ## GTK theme
 
 * `lxappearance`
