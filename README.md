@@ -9,7 +9,7 @@ Setup with `stow`. Clone this repo into `$HOME/dotfiles`, cd into `dotfiles` and
 * `sway`
   * `waybar`
     * [`mediaplayer`](https://github.com/Alexays/Waybar/blob/master/resources/custom_modules/mediaplayer.py) plugin from waybar repository
-* `rofi` [wayland fork](https://github.com/lbonn/rofi) (`rofi-lbonn-wayland-git` on the AUR) 
+* `rofi` [wayland fork](https://github.com/lbonn/rofi) (`rofi-lbonn-wayland-git` on the AUR)
 * `gnome-keyring`
 * `polkit-gnome`
 * `zsh`
@@ -24,7 +24,7 @@ Setup with `stow`. Clone this repo into `$HOME/dotfiles`, cd into `dotfiles` and
 * `wl-clipboard` - Command-line copy/paste utilities for Wayland
 * `neovim` (btw :neckbeard:)
 
-Font: `JetBrainsMonoNL Nerd Font Mono` https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/NoLigatures/Regular
+Font: `JetBrainsMonoNL Nerd Font Mono` <https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/NoLigatures/Regular>
 
 ## Git config
 
@@ -62,7 +62,7 @@ Font: `JetBrainsMonoNL Nerd Font Mono` https://github.com/ryanoasis/nerd-fonts/t
 
 ## Qt theme
 
-* `kvantum` (https://github.com/tsujan/Kvantum)
+* `kvantum` (<https://github.com/tsujan/Kvantum>)
 * `qt5ct`
 * `qt6ct`
 

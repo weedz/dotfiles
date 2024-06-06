@@ -67,7 +67,7 @@ alias ls="eza"
 alias cat="bat"
 #alias ssh="kitty +kitten ssh"
 
-alias hist='print -z $(tac ~/.zsh_history | fzf)'
+alias hist='print -z $(tac "$HOME/.zsh_history" | fzf)'
 
 # Use `doas` instead of `sudo`
 alias sudo="doas"
@@ -88,7 +88,7 @@ eval "$(sheldon source)"
 
 setopt promptsubst
 
-export HISTFILE=~/.zsh_history
+export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=10000
 export SAVEHIST=10000
 setopt inc_append_history
@@ -97,18 +97,18 @@ setopt HIST_IGNORE_ALL_DUPS
 
 fpath=(
     $fpath
-    ~/autoloaded
-    ~/.config/zsh/completions
+    "$HOME/autoloaded"
+    "$HOME/.config/zsh/completions"
 )
 
 autoload -Uz compinit;
-if [[ $(date +'%j') != $(zstat +mtime -F '%j' ~/.zcompdump) ]]; then
+if [[ $(date +'%j') != $(zstat +mtime -F '%j' "$HOME/.zcompdump") ]]; then
   compinit
   autoload -U zrecompile
     zrecompile -p \
-        -R ~/.zshrc -- \
-        -M ~/.zcompdump
-  touch ~/.zcompdump
+        -R "$HOME/.zshrc" -- \
+        -M "$HOME/.zcompdump"
+  touch "$HOME/.zcompdump"
 fi
 compinit -C
 
@@ -120,10 +120,10 @@ source $HOME/.config/zsh/bad_completions/_pnpm
 
 # tabtab source for packages
 # uninstall by removing these lines
-# [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
+# [[ -f "$HOME/.config/tabtab/zsh/__tabtab.zsh" ]] && . "$HOME/.config/tabtab/zsh/__tabtab.zsh" || true
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
 
-source ~/.config/zsh/script.sh
+source "$HOME/.config/zsh/script.sh"
 

@@ -2,13 +2,13 @@
 
 alias vim="nvim"
 export TERMINAL=/usr/bin/kitty
-export VISUAL=nvim
-export EDITOR="$VISUAL"
+# export VISUAL=nvim
+# export EDITOR="$VISUAL"
 
 # Execute code in the background to not affect the current session
 (
     autoload -U zrecompile
     zrecompile -p \
-        -R ~/.zshrc -- \
-        -M ~/.zcompdump
+        -R "$HOME/.zshrc" -- \
+        -M "$HOME/.zcompdump"
 ) &!
