@@ -5,7 +5,7 @@ set $mod Mod4
 set $term kitty
 
 # Music player+
-set $music_player ncspot
+set $music_player spotify
 
 ### Key bindings
 #

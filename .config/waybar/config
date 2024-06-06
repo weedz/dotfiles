@@ -39,13 +39,13 @@
     //     "on-click": "activate"
     // },
     "custom/mediaplayer": {
-        "exec": "/usr/bin/python3 $HOME/.config/waybar/modules/mediaplayer.py --player ncspot",
-        "exec-if": "pgrep ncspot",
+        "exec": "/usr/bin/python3 $HOME/.config/waybar/modules/mediaplayer.py --player spotify",
+        "exec-if": "pgrep spotify",
         "max-length": 60,
         "format": "{}  ",
         "escape": true,
         "return-type": "json",
-        "on-click": "playerctl --player=ncspot play-pause"
+        "on-click": "playerctl --player=spotify play-pause"
     },
     "tray": {
         "spacing": 10
