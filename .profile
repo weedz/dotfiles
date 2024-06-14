@@ -42,7 +42,6 @@ export XDG_CURRENT_DESKTOP=sway
 export TERMINAL=/usr/bin/kitty
 # export VISUAL=nvim
 # export EDITOR="$VISUAL"
-export EDITOR=nvim
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
