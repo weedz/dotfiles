@@ -14,8 +14,11 @@ shell = "zsh"
 
 [plugins]
 
-[plugins.powerlevel10k]
-github = "romkatv/powerlevel10k"
+[plugins.async]
+github = "mafredri/zsh-async"
+
+[plugins.pure]
+github = "sindresorhus/pure"
 
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"

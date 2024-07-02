@@ -1,9 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# zmodload zsh/zprof
 
 # Disable telemetry, https://github.com/nikolaxhristov/dot/blob/main/.bashrc
 export ADBLOCK=true
@@ -33,8 +28,6 @@ export POWERSHELL_TELEMETRY_OPTOUT=1
 export SAM_CLI_TELEMETRY=0
 export STNOUPGRADE=1
 export STRIPE_CLI_TELEMETRY_OPTOUT=1
-
-# zmodload zsh/zprof
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
@@ -102,6 +95,7 @@ fpath=(
 )
 
 autoload -Uz compinit;
+zmodload -F zsh/stat b:zstat
 if [[ $(date +'%j') != $(zstat +mtime -F '%j' "$HOME/.zcompdump") ]]; then
   compinit
   autoload -U zrecompile
@@ -122,8 +116,4 @@ source $HOME/.config/zsh/bad_completions/_pnpm
 # uninstall by removing these lines
 # [[ -f "$HOME/.config/tabtab/zsh/__tabtab.zsh" ]] && . "$HOME/.config/tabtab/zsh/__tabtab.zsh" || true
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
-
 source "$HOME/.config/zsh/script.sh"
-
