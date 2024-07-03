@@ -74,8 +74,16 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 
+fpath=(
+    $fpath
+    "$HOME/autoloaded"
+    "$HOME/.config/zsh/completions"
+)
+
 # Skip the not really helping Ubuntu global compinit
 skip_global_compinit=1
+
+PURE_GIT_PULL=0
 
 eval "$(sheldon source)"
 
@@ -87,12 +95,6 @@ export SAVEHIST=10000
 setopt inc_append_history
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS
-
-fpath=(
-    $fpath
-    "$HOME/autoloaded"
-    "$HOME/.config/zsh/completions"
-)
 
 autoload -Uz compinit;
 zmodload -F zsh/stat b:zstat
