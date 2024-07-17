@@ -51,6 +51,8 @@ Font: `JetBrainsMonoNL Nerd Font Mono` <https://github.com/ryanoasis/nerd-fonts/
 	helper = /usr/lib/git-core/git-credential-libsecret
 [rerere]
 	enabled = true
+[push]
+	default = upstream
 
 ```
 
