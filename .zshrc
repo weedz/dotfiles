@@ -51,8 +51,6 @@ if [ -d "$N_PREFIX/bin" ] ; then
     PATH="$N_PREFIX/bin:$PATH"
 fi
 
-export RUSTUP_TOOLCHAIN="stable"
-
 #source "$HOME/.cargo/env"
 
 # alias ls="ls --color"
@@ -113,9 +111,5 @@ zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(
 
 # NOTE: For some reason `pnpm` does not want to work with fpath, and needs to be "sourced" after `compinit`
 source $HOME/.config/zsh/bad_completions/_pnpm
-
-# tabtab source for packages
-# uninstall by removing these lines
-# [[ -f "$HOME/.config/tabtab/zsh/__tabtab.zsh" ]] && . "$HOME/.config/tabtab/zsh/__tabtab.zsh" || true
 
 source "$HOME/.config/zsh/script.sh"
