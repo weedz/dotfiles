@@ -149,7 +149,7 @@ bindsym XF86AudioPlay exec playerctl play-pause --player=$music_player
 bindsym XF86AudioNext exec playerctl next --player=$music_player
 bindsym XF86AudioPrev exec playerctl previous --player=$music_player
 
-set $menu "rofi -show combi -combi-modi window:~/.config/rofi/scripts/wayland_windows.sh,drun -theme Arc-Dark -icon-theme Papirus -show-icons"
+set $menu "rofi -show combi -combi-modi window:~/.config/rofi/scripts/wayland_windows.sh,drun -theme simple-tokyonight -icon-theme Papirus -show-icons"
 # set $menu "~/.config/wofi/scripts/show.sh"
 
 bindsym $mod+l exec swaylock
@@ -208,6 +208,9 @@ output "Goldstar Company Ltd LG ULTRAGEAR 103NTNHGK295" {
     mode 2560x1440@144Hz
     adaptive_sync off
 }
+
+workspace 1 output "Goldstar Company Ltd LG ULTRAGEAR 103NTNHGK295"
+workspace 2 output "Acer Technologies XF270HU T78EE0048521"
 
 # focused
 #    border:     #990257
