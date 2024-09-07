@@ -57,6 +57,7 @@ fi
 alias ls="eza"
 alias cat="bat"
 #alias ssh="kitty +kitten ssh"
+alias ll="ls -la"
 
 alias hist='print -z $(tac "$HOME/.zsh_history" | fzf)'
 
