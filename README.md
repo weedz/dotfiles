@@ -23,6 +23,7 @@ Setup with `stow`. Clone this repo into `$HOME/dotfiles`, cd into `dotfiles` and
 * [zoxide](https://github.com/ajeetdsouza/zoxide) - better `cd` command
 * `wl-clipboard` - Command-line copy/paste utilities for Wayland
 * `neovim` (btw :neckbeard:)
+* [delta](https://github.com/dandavison/delta) - git pager
 
 Font: `JetBrainsMonoNL Nerd Font Mono` <https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/NoLigatures/Regular>
 
@@ -30,30 +31,34 @@ Font: `JetBrainsMonoNL Nerd Font Mono` <https://github.com/ryanoasis/nerd-fonts/
 
 ```gitconfig
 [pull]
-	rebase = true
+    rebase = true
 [core]
-	editor = nvim
-	commitGraph = true
+    pager = delta
+    editor = nvim
+    commitGraph = true
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
 [commit]
-	gpgSign = true
+    gpgSign = true
 [merge]
-	conflictstyle = diff3
+    conflictstyle = diff3
 [tag]
-	forceSignAnnotated = true
+    forceSignAnnotated = true
 [gpg]
-	program = gpg
+    program = gpg
 [diff]
-	colorMoved = zebra
+    colorMoved = zebra
 [rebase]
-	updateRefs = true
+    updateRefs = true
 [credential]
-	credentialStore = gpg
-	helper = /usr/lib/git-core/git-credential-libsecret
+    credentialStore = gpg
+    helper = /usr/lib/git-core/git-credential-libsecret
 [rerere]
-	enabled = true
+    enabled = true
 [push]
-	default = upstream
-
+    default = upstream
 ```
 
 ## GTK theme
