@@ -1,5 +1,13 @@
 # zmodload zsh/zprof
 
+export VISUAL="nvim"
+export EDITOR="$VISUAL"
+
+VI_MODE_SET_CURSOR=true
+source ~/.config/zsh/vi-mode.zsh
+
+# bindkey -v
+
 # Disable telemetry, https://github.com/nikolaxhristov/dot/blob/main/.bashrc
 export ADBLOCK=true
 export ASTRO_TELEMETRY_DISABLED=1
