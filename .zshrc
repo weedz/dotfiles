@@ -7,6 +7,7 @@ VI_MODE_SET_CURSOR=true
 source ~/.config/zsh/vi-mode.zsh
 
 # bindkey -v
+bindkey -M vicmd v edit-command-line
 
 # Disable telemetry, https://github.com/nikolaxhristov/dot/blob/main/.bashrc
 export ADBLOCK=true
