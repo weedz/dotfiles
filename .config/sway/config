@@ -151,8 +151,9 @@ bindsym XF86AudioPlay exec playerctl play-pause --player=$music_player
 bindsym XF86AudioNext exec playerctl next --player=$music_player
 bindsym XF86AudioPrev exec playerctl previous --player=$music_player
 
-set $menu "rofi -show combi -combi-modi window:~/.config/rofi/scripts/wayland_windows.sh,drun -theme simple-tokyonight -icon-theme Papirus -show-icons"
-# set $menu "~/.config/wofi/scripts/show.sh"
+set $menu "rofi -show combi -theme simple-tokyonight -icon-theme Papirus -show-icons"
+#set $menu "rofi -show combi -combi-modi window:~/.config/rofi/scripts/wayland_windows.sh,drun -theme simple-tokyonight -icon-theme Papirus -show-icons"
+#set $menu "j4-dmenu-desktop --dmenu='bemenu -i'"
 
 bindsym $mod+l exec swaylock
 
