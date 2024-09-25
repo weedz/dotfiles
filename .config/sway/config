@@ -2,7 +2,9 @@
 set $mod Mod4
 
 # Your preferred terminal emulator
-set $term kitty
+set $term footclient
+# Start "foot server"
+exec foot --server
 
 # Music player+
 set $music_player spotify
