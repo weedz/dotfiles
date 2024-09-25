@@ -1,4 +1,3 @@
-local Util = require("lazyvim.util")
 local icons = require("lazyvim.config").icons
 return {
     "nvim-lualine/lualine.nvim",
