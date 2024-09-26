@@ -16,7 +16,7 @@ Setup with `stow`. Clone this repo into `$HOME/dotfiles`, cd into `dotfiles` and
 * `playerctl` - Handle media keys
 * `gammastep` - Controls the monitor color temperature
 * [light](https://archlinux.org/packages/community/x86_64/light/) - Change screen brightness
-* [kitty](https://github.com/kovidgoyal/kitty)
+* [foot](https://codeberg.org/dnkl/foot) - Terminal
 * [yazi](https://github.com/sxyazi/yazi) - TUI file manager
 * [eza](https://github.com/eza-community/eza) - ls "replacement"
 * `bat` - cat "replacement"
