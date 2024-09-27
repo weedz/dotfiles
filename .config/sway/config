@@ -163,7 +163,7 @@ workspace_layout tabbed
 tiling_drag disable
 hide_edge_borders smart
 
-exec  /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec systemctl --user start plasma-polkit-agent
 font pango:JetBrainsMonoNL Nerd Font Mono 10
 
 # Clipboard

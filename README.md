@@ -11,7 +11,7 @@ Setup with `stow`. Clone this repo into `$HOME/dotfiles`, cd into `dotfiles` and
     * [`mediaplayer`](https://github.com/Alexays/Waybar/blob/master/resources/custom_modules/mediaplayer.py) plugin from waybar repository
 * `rofi` [wayland fork](https://github.com/lbonn/rofi) (`rofi-lbonn-wayland-git` on the AUR)
 * `gnome-keyring`
-* `polkit-gnome`
+* `polkit-kde-agent`
 * `zsh`
 * `playerctl` - Handle media keys
 * `gammastep` - Controls the monitor color temperature
