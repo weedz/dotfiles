@@ -5,4 +5,5 @@ return {
     { "folke/flash.nvim", enabled = false },
     { "MeanderingProgrammer/markdown.nvim", enabled = false },
     { "MeanderingProgrammer/render-markdown.nvim", enabled = false },
+    { "nvimdev/dashboard-nvim", enabled = false },
 }
