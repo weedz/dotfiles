@@ -1,0 +1,8 @@
+[Nemo Action]
+Active=true
+Name=Extract Files...
+Comment=Extract archives here
+Exec=engrampa -h %F
+Selection=Any
+Extensions=any;
+Quote=double

@@ -1,0 +1,9 @@
+[Nemo Action]
+Active=true
+Name=Open in terminal
+Comment=Open in terminal
+Exec=footclient -D "%F"
+Selection=none
+Extensions=any;
+Quote=double
+

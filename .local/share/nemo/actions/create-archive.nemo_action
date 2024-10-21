@@ -1,0 +1,8 @@
+[Nemo Action]
+Active=true
+Name=Compress Files...
+Comment=Create a compressed archive
+Exec=engrampa -d %F
+Selection=Any
+Extensions=any;
+Quote=double
