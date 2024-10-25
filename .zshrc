@@ -6,8 +6,13 @@ export EDITOR="$VISUAL"
 VI_MODE_SET_CURSOR=true
 source ~/.config/zsh/vi-mode.zsh
 
-# bindkey -v
+bindkey -v
 bindkey -M vicmd v edit-command-line
+
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
 
 # Disable telemetry, https://github.com/nikolaxhristov/dot/blob/main/.bashrc
 export ADBLOCK=true
@@ -59,6 +64,10 @@ export N_PREFIX="$HOME/n"
 if [ -d "$N_PREFIX/bin" ] ; then
     PATH="$N_PREFIX/bin:$PATH"
 fi
+
+# `deno`
+# export DENO_INSTALL_ROOT="$HOME/.local/share/deno/bin"
+# export PATH="$DENO_INSTALL_ROOT:$PATH"
 
 #source "$HOME/.cargo/env"
 
