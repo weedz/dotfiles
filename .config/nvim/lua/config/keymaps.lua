@@ -2,6 +2,9 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- Terminal mode
+vim.keymap.set("t", "<ESC>", "<C-\\><C-N>")
+
 -- Telescope
 vim.keymap.set("n", "<leader>pw", function()
     local word = vim.fn.expand("<cword>")
