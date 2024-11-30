@@ -24,6 +24,7 @@ Setup with `stow`. Clone this repo into `$HOME/dotfiles`, cd into `dotfiles` and
 * `wl-clipboard` - Command-line copy/paste utilities for Wayland
 * `neovim` (btw :neckbeard:)
 * [delta](https://github.com/dandavison/delta) - git pager
+* [tealdeer](https://github.com/tealdeer-rs/tealdeer) - TLDR man pages
 
 Font: `JetBrainsMonoNL Nerd Font Mono` <https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/NoLigatures/Regular>
 
