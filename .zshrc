@@ -6,8 +6,8 @@ export EDITOR="$VISUAL"
 VI_MODE_SET_CURSOR=true
 source ~/.config/zsh/vi-mode.zsh
 
-bindkey -v
-bindkey -M vicmd v edit-command-line
+# bindkey -v
+# bindkey -M vicmd v edit-command-line
 
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
@@ -84,6 +84,8 @@ alias sudo="doas"
 alias sudoedit="doas rnano"
 
 #alias screenkey="wshowkeys -a bottom -m 200 -t 2"
+
+export MANPAGER='nvim +Man!'
 
 # Bind ctrl+[left/right arrow]
 bindkey "^[[1;5D" backward-word
