@@ -6,5 +6,4 @@ return {
     { "MeanderingProgrammer/markdown.nvim", enabled = false },
     { "MeanderingProgrammer/render-markdown.nvim", enabled = false },
     { "nvimdev/dashboard-nvim", enabled = false },
-    { "folke/tokyonight.nvim", enabled = false },
 }

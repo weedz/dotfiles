@@ -4,3 +4,6 @@
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.scrolloff = 10
+
+-- Disable animations...
+vim.g.snacks_animate = false
