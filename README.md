@@ -53,6 +53,7 @@ Font: `JetBrainsMonoNL Nerd Font Mono` <https://github.com/ryanoasis/nerd-fonts/
     colorMoved = zebra
 [rebase]
     updateRefs = true
+    autoStash = true
 [credential]
     credentialStore = gpg
     helper = /usr/lib/git-core/git-credential-libsecret
