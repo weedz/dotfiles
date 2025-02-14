@@ -9,7 +9,7 @@ Setup with `stow`. Clone this repo into `$HOME/dotfiles`, cd into `dotfiles` and
 * `sway`
   * `waybar`
     * [`mediaplayer`](https://github.com/Alexays/Waybar/blob/master/resources/custom_modules/mediaplayer.py) plugin from waybar repository
-* `rofi` [wayland fork](https://github.com/lbonn/rofi) (`rofi-lbonn-wayland-git` on the AUR)
+* `rofi-wayland` [wayland fork](https://github.com/lbonn/rofi)
 * `gnome-keyring`
 * `polkit-kde-agent`
 * `zsh`
