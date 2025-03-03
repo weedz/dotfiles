@@ -77,8 +77,6 @@ alias cat="bat"
 #alias ssh="kitty +kitten ssh"
 alias ll="ls -la"
 
-alias hist='print -z $(tac "$HOME/.zsh_history" | fzf)'
-
 # Use `doas` instead of `sudo`
 alias sudo="doas"
 alias sudoedit="doas rnano"
@@ -134,6 +132,24 @@ zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(
 source $HOME/.config/zsh/bad_completions/_pnpm
 
 source "$HOME/.config/zsh/script.sh"
+
+# fzf completions
+FD_FZF_EXCLUDE_LIST="--exclude 'node_modules' --exclude '.git' --exclude 'target' --exclude 'dist'"
+export FZF_CTRL_T_COMMAND="fd --hidden --follow ${FD_FZF_EXCLUDE_LIST}"
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always {}'"
+export FZF_ALT_C_COMMAND="fd --hidden --follow --type d  ${FD_FZF_EXCLUDE_LIST}"
+export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
+# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude "node_modules" --exclude ".git" . "$1"
+}
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type d --hidden --follow --exclude "node_modules" --exclude ".git" . "$1"
+}
+source "$HOME/.config/zsh/fzf-keybindings.zsh"
 
 # Foot, shell integration
 precmd() {
