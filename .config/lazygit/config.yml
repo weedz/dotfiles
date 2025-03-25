@@ -1,3 +1,5 @@
+gui:
+  switchTabsWithPanelJumpKeys: true
 git:
   paging:
     colorArg: always
