@@ -245,8 +245,17 @@ client.focused          "#990257" "#BF026D" "#ffffff"
 client.focused_inactive "#990257" "#990257" "#ffffff"
 client.unfocused        "#990257" "#590133" "#cccccc"
 
-output "*" bg /home/weedz/Pictures/wallpapers/wallpaper fill
-#output * bg #000000 solid_color
+output "LG Electronics LG ULTRAGEAR 103NTNHGK295" {
+  bg /home/weedz/Pictures/wallpapers/wallpaper fill
+}
+output "Acer Technologies XF270HU T78EE0048521" {
+  bg /home/weedz/Pictures/wallpapers/wallpaper-2 fill
+}
+output "LG Electronics LG ULTRAGEAR 405NTRL0G654" {
+  bg /home/weedz/Pictures/wallpapers/wallpaper-3 fill
+}
+# output "*" bg /home/weedz/Pictures/wallpapers/wallpaper fill
+# output * bg #000000 solid_color
 
 # Set transparency for some programs
 
