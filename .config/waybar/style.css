@@ -66,6 +66,17 @@
   padding-right: 10px;
 }
 
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#custom-mediaplayer:hover,
+#memory:hover,
+#mode:hover,
+#pulseaudio:hover,
+#temperature:hover,
+#tray:hover {
+  background-color: #1a1a1a;
+}
 
 #clock,
 #battery,
@@ -73,7 +84,7 @@
 #memory,
 #pulseaudio,
 #temperature {
-  border-bottom: 1px solid #990257;
+  border-top: 1px solid #990257;
 }
 
 /* -----------------------------------------------------------------------------
