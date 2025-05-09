@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 alias vim="nvim"
-export TERMINAL=/usr/bin/kitty
+export TERMINAL=/usr/bin/footclient
 # export VISUAL=nvim
 # export EDITOR="$VISUAL"
 
