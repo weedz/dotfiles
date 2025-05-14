@@ -6,13 +6,3 @@ function c() {
     cd "$DIR" || exit 1
   fi
 }
-
-function y() {
-  local tmp cwd
-  tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-  yazi "$@" --cwd-file="$tmp"
-  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    builtin cd -- "$cwd" || true
-  fi
-  rm -f -- "$tmp"
-}
