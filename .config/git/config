@@ -1,0 +1,40 @@
+[user]
+  email = weedzcokie@gmail.com
+  name = Linus Björklund
+  signingkey = 2062263B07E7BC29
+[pull]
+  rebase = true
+[core]
+  pager = delta
+  editor = nvim
+  commitGraph = true
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+[commit]
+  gpgSign = true
+[merge]
+  conflictstyle = diff3
+[tag]
+  forceSignAnnotated = true
+[gpg]
+  program = gpg
+[diff]
+  colorMoved = zebra
+  ; tool = meld
+[rebase]
+  updateRefs = true
+  autoStash = true
+[credential]
+  credentialStore = gpg
+  helper = /usr/lib/git-core/git-credential-libsecret
+[credential "https://dev.azure.com"]
+  useHttpPath = true
+[rerere]
+  enabled = true
+[push]
+  default = upstream
+
+[url "git@github.com:weedz/"]
+  insteadOf = "weedz:"
