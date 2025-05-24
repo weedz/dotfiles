@@ -15,7 +15,7 @@
 [commit]
   gpgSign = true
 [merge]
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 [tag]
   forceSignAnnotated = true
 [gpg]
@@ -35,6 +35,8 @@
   enabled = true
 [push]
   default = upstream
+[submodule]
+  recurse = true
 
 [url "git@github.com:weedz/"]
   insteadOf = "weedz:"

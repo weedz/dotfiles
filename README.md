@@ -4,6 +4,7 @@ Setup with `stow`. Clone this repo into `$HOME/dotfiles`, cd into `dotfiles` and
 
 ## Required applications
 
+- [rua](https://github.com/vn971/rua) - AUR build tool/helper
 - [sheldon](https://github.com/rossmacarthur/sheldon#cargo) - Shell plugin manager. Install with `cargo install sheldon`
 - `mako` - notifications
 - `sway`
