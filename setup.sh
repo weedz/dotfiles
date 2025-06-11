@@ -10,6 +10,7 @@ doas pacman -S --needed \
   git \
   htop \
   zsh \
+  fish \
   neovim \
   sheldon \
   sway \

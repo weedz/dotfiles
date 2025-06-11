@@ -50,6 +50,7 @@ fi
 
 # Add cargo "installed" packages to PATH
 PATH="$HOME/.cargo/bin:$PATH"
+#source "$HOME/.cargo/env"
 
 # Add go and "installed" go packages to PATH
 # PATH="$HOME/bin/go/bin:$HOME/go/bin:$PATH"
@@ -68,8 +69,6 @@ fi
 # `deno`
 # export DENO_INSTALL_ROOT="$HOME/.local/share/deno/bin"
 # export PATH="$DENO_INSTALL_ROOT:$PATH"
-
-#source "$HOME/.cargo/env"
 
 # alias ls="ls --color"
 alias ls="eza"
@@ -134,6 +133,7 @@ zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(
 source $HOME/.config/zsh/bad_completions/_pnpm
 
 source "$HOME/.config/zsh/script.sh"
+source "$HOME/.config/zsh/extra.sh"
 
 # fzf completions
 FD_FZF_EXCLUDE_LIST="--exclude 'node_modules' --exclude '.git' --exclude 'target' --exclude 'dist'"
