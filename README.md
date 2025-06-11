@@ -84,4 +84,10 @@ Java applications might need `env GDK_BACKEND=x11`
 
 Install `handlr-bin` and `xdg-utils-handlr` (to replace `xdg-open`). Should just work.
 
-Make sure to handle `inode/directory`. Example for the nemo file manager: `handlr set inode/directory nemo.desktop`
+Make sure to handle `inode/directory`. Example for the nemo file manager: `handlr set inode/directory nemo.desktop`.
+
+Set default browser:
+
+```console
+xdg-mime default firefox x-scheme-handler/https x-scheme-handler/http
+```
