@@ -2,10 +2,10 @@
 
 set -eux
 
-doas pacman -Suy
+sudo pacman -Suy
 
 # work-in-progress list of packages and applications
-doas pacman -S --needed \
+sudo pacman -S --needed \
   stow \
   git \
   htop \
@@ -32,7 +32,7 @@ doas pacman -S --needed \
   git-delta \
   tealdeer
 
-doas pacman -S --needed \
+sudo pacman -S --needed \
   spotify-launcher \
   obs-studio \
   ffmpeg \

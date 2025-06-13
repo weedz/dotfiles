@@ -17,12 +17,6 @@ alias ll="ls -la"
 alias rg='rg --no-follow --glob "!{/proc,/dev,/sys,**/.git/*}"'
 alias fd='fd --exclude /proc --exclude /sys --exclude /dev --exclude .git'
 
-# Use `doas` instead of `sudo`
-alias sudo="doas"
-alias sudoedit="doas rnano"
-
-set MANPAGER 'nvim +Man!'
-
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
