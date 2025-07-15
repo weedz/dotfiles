@@ -9,7 +9,6 @@ sudo pacman -S --needed \
   stow \
   git \
   htop \
-  zsh \
   fish \
   neovim \
   sheldon \
