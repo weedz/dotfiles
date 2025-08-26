@@ -69,9 +69,4 @@ fi
 
 export VDPAU_DRIVER="radeonsi"
 
-export RUA_SUDO_COMMAND="doas"
-
 # source "$HOME/.cargo/env"
-
-alias sudo="doas"
-alias sudoedit="doas rnano"

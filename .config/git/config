@@ -16,6 +16,7 @@
   gpgSign = true
 [merge]
   conflictstyle = zdiff3
+  tool = nvimdiff
 [tag]
   forceSignAnnotated = true
 [gpg]
