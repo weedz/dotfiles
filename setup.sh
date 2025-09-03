@@ -5,13 +5,16 @@ set -eux
 sudo pacman -Suy
 
 # work-in-progress list of packages and applications
+# "needed" applications
 sudo pacman -S --needed \
   stow \
   git \
   htop \
   fish \
   neovim \
-  sheldon \
+  rustup \
+  go \
+  fzf \
   sway \
   pipewire pipewire-pulse pipewire-alsa wireplumber xdg-desktop-portal xdg-desktop-portal-wlr \
   xorg-xwayland \
@@ -28,14 +31,17 @@ sudo pacman -S --needed \
   foot \
   eza \
   bat \
+  grim slurp \
   git-delta \
   tealdeer
 
+# "optional" applications
 sudo pacman -S --needed \
   spotify-launcher \
   obs-studio \
   ffmpeg \
   mpv \
+  imv \
   nemo \
   engrampa \
   steam-native-runtime \
@@ -43,3 +49,5 @@ sudo pacman -S --needed \
   helvum \
   meld \
   dust
+
+# install n/node <https://github.com/tj/n>
