@@ -6,17 +6,17 @@
 vim.keymap.set("t", "<ESC>", "<C-\\><C-N>")
 
 -- Telescope
-vim.keymap.set("n", "<leader>pw", function()
-    local word = vim.fn.expand("<cword>")
-    require("telescope.builtin").grep_string({ search = word })
-end, { desc = "Find word at cursor" })
-vim.keymap.set("n", "<leader>pW", function()
-    local word = vim.fn.expand("<cWORD>")
-    require("telescope.builtin").grep_string({ search = word })
-end, { desc = "Find WORD at cursor" })
-vim.keymap.set("n", "<leader>pf", function()
-    require("telescope.builtin").find_files()
-end, { desc = "Find files" })
+-- vim.keymap.set("n", "<leader>pw", function()
+--     local word = vim.fn.expand("<cword>")
+--     require("telescope.builtin").grep_string({ search = word })
+-- end, { desc = "Find word at cursor" })
+-- vim.keymap.set("n", "<leader>pW", function()
+--     local word = vim.fn.expand("<cWORD>")
+--     require("telescope.builtin").grep_string({ search = word })
+-- end, { desc = "Find WORD at cursor" })
+-- vim.keymap.set("n", "<leader>pf", function()
+--     require("telescope.builtin").find_files()
+-- end, { desc = "Find files" })
 
 -- Trouble
 vim.keymap.set("n", "<leader>tt", function()

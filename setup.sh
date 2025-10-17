@@ -41,6 +41,7 @@ sudo pacman -S --needed \
   obs-studio \
   ffmpeg \
   mpv \
+  jellyfin-mpv-shim python-pystray \
   imv \
   nemo \
   engrampa \

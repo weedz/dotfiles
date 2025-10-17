@@ -153,7 +153,8 @@ bindsym XF86AudioPrev exec playerctl previous --player=$music_player
 
 set $menu "rofi -show combi -theme simple-tokyonight -icon-theme Papirus -show-icons"
 #set $menu "rofi -show combi -combi-modi window:~/.config/rofi/scripts/wayland_windows.sh,drun -theme simple-tokyonight -icon-theme Papirus -show-icons"
-#set $menu "j4-dmenu-desktop --dmenu='bemenu -i'"
+#exec j4-dmenu-desktop --dmenu='tofi' --wait-on=~/.tofi-menu
+#set $menu "echo > ~/.tofi-menu"
 
 bindsym $mod+l exec swaylock
 
@@ -202,27 +203,31 @@ input "type:pointer" {
 }
 
 # Set display mode and position (turn off adaptive sync, causes flickering)
-output "Acer Technologies XF270HU T78EE0048521" {
-    mode 2560x1440@144Hz
-    adaptive_sync off
-    pos 0 0
-}
 output "LG Electronics LG ULTRAGEAR 103NTNHGK295" {
     mode 2560x1440@144Hz
     adaptive_sync off
     pos 2560 0
 }
-
+output "Acer Technologies XF270HU T78EE0048521" {
+    mode 2560x1440@144Hz
+    adaptive_sync off
+    pos 0 0
+}
 output "LG Electronics LG ULTRAGEAR 405NTRL0G654" {
   mode 1920x1080@144Hz
+  # adaptive_sync on
   transform 90
   pos 5120 0
 }
+
+# TEST `sway -D noatomic` to disable Atomic commit?
 
 workspace 1 output "LG Electronics LG ULTRAGEAR 103NTNHGK295"
 workspace 3 output "LG Electronics LG ULTRAGEAR 103NTNHGK295"
 workspace 2 output "Acer Technologies XF270HU T78EE0048521"
 workspace 4 output "LG Electronics LG ULTRAGEAR 405NTRL0G654"
+
+#seat seat0 xcursor_theme default 24
 
 # focused
 #    border:     #990257
@@ -266,10 +271,14 @@ for_window [app_id="code-url-handler"] opacity 0.95
 # x11: for_window [class="git-good"] opacity 0.95
 # wayland! app.setDesktopName("git-good")
 for_window [app_id="git-good"] opacity 0.9
-for_window [class="Spotify"] opacity 0.9
+for_window [app_id="spotify"] opacity 0.9
 for_window [app_id="nemo"] opacity 0.9
-# for_window [app_id="kitty"] opacity 0.95
 
 for_window [app_id="qalculate-gtk"] floating enable
+
+for_window [app_id="one.alynx.showmethekey" title="Floating Window - Show Me The Key"] {
+  floating enable
+  sticky enable
+}
 
 include /etc/sway/config.d/*

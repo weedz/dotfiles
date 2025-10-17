@@ -4,8 +4,7 @@ Setup with `stow`. Clone this repo into `$HOME/dotfiles`, cd into `dotfiles` and
 
 ## Required applications
 
-- [rua](https://github.com/vn971/rua) - AUR build tool/helper
-- [sheldon](https://github.com/rossmacarthur/sheldon#cargo) - Shell plugin manager. Install with `cargo install sheldon`
+- [pary](https://github.com/Morganamilo/paru) - AUR build tool/helper
 - `mako` - notifications
 - `sway`
   - `waybar`
@@ -15,13 +14,13 @@ Setup with `stow`. Clone this repo into `$HOME/dotfiles`, cd into `dotfiles` and
   - TODO: Replace "secret service" with keepassxc.
 - [keepassxc](https://github.com/keepassxreboot/keepassxc)
 - `polkit-kde-agent`
-- `zsh`
+- `fish`
 - `playerctl` - Handle media keys
 - `gammastep` - Controls the monitor color temperature
 - [light](https://archlinux.org/packages/community/x86_64/light/) - Change screen brightness
 - [foot](https://codeberg.org/dnkl/foot) - Terminal
-- [eza](https://github.com/eza-community/eza) - ls "replacement"
-- `bat` - cat "replacement"
+- [eza](https://github.com/eza-community/eza) - ls replacement
+- `bat` - cat replacement
 - `wl-clipboard` - Command-line copy/paste utilities for Wayland
 - `neovim` (btw :neckbeard:)
 - [delta](https://github.com/dandavison/delta) - git pager

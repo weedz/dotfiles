@@ -8,12 +8,12 @@
     "sway/workspaces",
     "sway/mode",
     "custom/mediaplayer"
+    // Custom module docs <https://github.com/Alexays/Waybar/wiki/Module:-Custom:-Simple>
+    // "custom/foo",
   ],
-  // "modules-left": ["hyprland/workspaces", "custom/mediaplayer"],
-  "modules-center": [
-    "sway/window"
-  ],
-  // "modules-center": ["hyprland/window"],
+  //"modules-left": ["hyprland/workspaces", "custom/mediaplayer"],
+  "modules-center": ["sway/window"],
+  //"modules-center": ["hyprland/window"],
   "modules-right": [
     "pulseaudio",
     // "wireplumber",
@@ -28,16 +28,19 @@
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
   },
-  // "hyprland/window": {
-  //     "max-length": 200,
-  //     "separate-outputs": true
-  // },
-  // "hyprland/workspaces": {
-  //     "format": "{icon}",
-  //     "on-scroll-up": "hyprctl dispatch workspace e+1",
-  //     "on-scroll-down": "hyprctl dispatch workspace e-1",
-  //     "on-click": "activate"
-  // },
+  "hyprland/window": {
+    "max-length": 200,
+    "separate-outputs": true
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "on-click": "activate"
+  },
+  "custom/foo": {
+    "exec": "$HOME/.config/waybar/modules/foo.js"
+  },
   "custom/mediaplayer": {
     "exec": "/usr/bin/python3 $HOME/.config/waybar/modules/mediaplayer.py --player spotify",
     "exec-if": "pgrep spotify",
