@@ -19,7 +19,8 @@ function fish_prompt
     # ╰─>$ echo there
 
     set -l retc red
-    test $status = 0; and set retc green
+    set -l prev_status $status
+    test $prev_status = 0; and set retc green
 
     set -q __fish_git_prompt_showupstream
     or set -g __fish_git_prompt_showupstream auto
@@ -110,6 +111,10 @@ function fish_prompt
 
     set_color $retc
     echo -n '╰─>'
+
+    if test $prev_status != 0
+        echo -n "[$prev_status]"
+    end
 
     set_color normal
     if functions -q fish_is_root_user; and fish_is_root_user
