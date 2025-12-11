@@ -177,9 +177,9 @@ font pango:JetBrainsMonoNL Nerd Font Mono 10
 #bindsym p exec grim -g "$(slurp)"
 
 bindsym $mod+Alt+s exec grim -g "$(slurp)"
+# pipe image to tesseract, tesseract read from stdin and output to stdout (`tesseract - -`), wl-copy to send found text to clipboard
+bindsym $mod+Alt+c exec grim -g "$(slurp)" - | tesseract - - -l eng | wl-copy
 bindsym $mod+Alt+p exec grim
-
-# "magnifier adjacent"
 # bindsym $mod+Alt+z exec grim - | imv -
 
 # open screenshot with gimp
