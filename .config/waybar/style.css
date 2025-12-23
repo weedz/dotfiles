@@ -179,13 +179,13 @@
 #workspaces button.active {
   border-color: #990257;
   color: white;
-  background: #590133;
+  /* background: #590133; */
 }
 
 #workspaces button.focused:hover {
   box-shadow: inherit;
   text-shadow: inherit;
-  background: #590133;
+  /* background: #590133; */
 }
 
 #workspaces button.urgent {
