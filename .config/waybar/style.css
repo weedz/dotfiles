@@ -78,15 +78,6 @@
   background-color: #1a1a1a;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#pulseaudio,
-#temperature {
-  border-top: 1px solid #990257;
-}
-
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
@@ -145,7 +136,7 @@
 
 #mode {
   background: #64727D;
-  border-top: 2px solid white;
+  /* border-top: 2px solid white; */
   /* To compensate for the top border and still have vertical centering */
   padding-bottom: 2px;
 }
