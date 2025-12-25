@@ -2,7 +2,7 @@ return {
     {
         "LazyVim/LazyVim",
         opts = {
-            colorscheme = "rose-pine-main",
+            -- colorscheme = "rose-pine-main",
             -- From <https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/init.lua#L101>
             kind_filter = {
                 default = {

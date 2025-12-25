@@ -1,12 +1,12 @@
-return {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    opts = {
-        styles = {
-            transparency = true,
-        },
-    },
-}
+-- return {
+--     "rose-pine/neovim",
+--     name = "rose-pine",
+--     opts = {
+--         styles = {
+--             transparency = true,
+--         },
+--     },
+-- }
 
 -- return {
 --     "catppuccin/nvim",
@@ -18,15 +18,15 @@ return {
 --     },
 -- }
 
--- return {
---     "folke/tokyonight.nvim",
---     lazy = true,
---     opts = {
---         style = "night",
---         transparent = true,
---         styles = {
---             sidebars = "transparent",
---             floats = "transparent",
---         },
---     },
--- }
+return {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    opts = {
+        style = "night",
+        transparent = true,
+        styles = {
+            sidebars = "transparent",
+            floats = "transparent",
+        },
+    },
+}
