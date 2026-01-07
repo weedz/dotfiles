@@ -1,0 +1,152 @@
+#!/usr/bin/env bash
+
+# if [[ -z "${projects_list[*]}" ]]; then
+#   declare -rA projects_list=(
+#     ["nvim"]="$HOME/.config/nvim"
+#   )
+#   export projects_list
+# fi
+if [[ -f "$HOME/.config/tmux/tmux-sessionizer-projects" ]]; then
+  # shellcheck disable=SC1091
+  source "$HOME/.config/tmux/tmux-sessionizer-projects"
+fi
+
+generate_list() {
+  if tmux ls &>/dev/null; then
+    echo -e "\e[34m● Sessions\e[0m"
+    tmux list-sessions -F '#{session_name}' 2>/dev/null | while read -r session; do
+      echo -e "> $session"
+    done
+  fi
+
+  if [[ -f "$HOME/.config/tmux/tmux-sessionizer-projects" ]]; then
+    # shellcheck disable=SC1091
+    source "$HOME/.config/tmux/tmux-sessionizer-projects"
+    echo -e "\e[34m● Projects\e[0m"
+    if [[ ${#projects_list[@]} -gt 0 ]]; then
+      for key in "${!projects_list[@]}"; do
+        echo "$key"
+      done
+    fi
+  fi
+
+  echo -e "\e[34m● Workspace\e[0m"
+  fd --max-depth=1 --type=directory --exclude '/thirdparty' --exclude '/@weedzcokie' . ~/Documents/workspace/ ~/Documents/workspace/thirdparty/ ~/Documents/workspace/@weedzcokie/ 2>/dev/null | while read -r dir; do
+    echo "$dir"
+  done
+}
+
+focus-session() {
+  local session="$1"
+  if [[ -z $TMUX ]]; then
+    # NOTE: Can't do `select-window` after `attach`
+    tmux attach -t "$session"
+  else
+    tmux switch-client -t "$session"
+  fi
+}
+
+# Repair/Create Session
+# Ensures Terminal, Folder, and Nvim exist, then focuses Nvim
+repair-session() {
+  local session="$1"
+  local project_path="$2"
+
+  if [[ -z "$project_path" ]]; then
+    # Try to find the project path from an existing window's pane current path
+    project_path=$(tmux list-panes -t "$session" -F "#{pane_current_path}" | head -n 1)
+  fi
+
+  # TODO - Make this more dynamic such as storing the windows in an array
+  # Check/Create missing windows
+  tmux has-session -t "$session:terminal" 2>/dev/null || tmux new-window -d -t "$session" -n "terminal" -c "$project_path"
+  tmux has-session -t "$session:nvim" 2>/dev/null || tmux new-window -d -t "$session" -n "nvim" -c "$project_path" "nvim"
+}
+
+create-project-session() {
+  local project="$1"
+  local session_name="$2"
+  if [[ -z "$session_name" ]]; then
+    # remove trailing slash (`"${foo%"${foo##*[!/]}"}"`)
+    session_name="${project%"${project##*[!/]}"}"
+    # delete everything upto, and including, the last slash
+    session_name="${session_name##*/}"
+    # session_name=$(basename "$project" | tr . _)
+  fi
+
+  if tmux has-session -t "$session_name" 2>/dev/null; then
+    repair-session "$session_name"
+    focus-session "$session_name"
+  elif [[ -z "$project" ]]; then
+    echo "Invalid entry"
+    exit 1
+  else
+    tmux new-session -d -s "$session_name" -n "terminal" -c "$project"
+    repair-session "$session_name" "$project"
+    # Default focus for NEW projects is nvim
+    tmux select-window -t "${session_name}:nvim"
+    focus-session "$session_name"
+  fi
+}
+
+kill-tmux-session() {
+  session="$1"
+  if [[ "$session" != "> "* ]]; then
+    exit 0
+  fi
+  target_id=${session:2}
+  if [[ ${target_id} ]]; then
+    tmux kill-session -t "$target_id"
+  fi
+}
+
+is-valid-selection() {
+  selection="$1"
+  # User pressed enter on a static header
+  if [[ $selection == "● "* ]]; then
+    echo ""
+  else
+    echo "accept"
+  fi
+}
+
+# export `generate_list` and `kill-tmux-session` as functions to be used in fzf actions
+export -f generate_list
+export -f kill-tmux-session
+export -f is-valid-selection
+
+# Main Loop - This is needed to handle CTRL-x and ENTER
+while true; do
+  selected=$(
+    generate_list | fzf-tmux \
+      --with-shell='bash -c' \
+      --ansi \
+      --prompt="Find Project/Window: " \
+      --header "ENTER on ●: Restore & Focus Nvim | CTRL-x: Kill session" \
+      --layout=reverse \
+      --bind "ctrl-x:execute-silent(kill-tmux-session {})+reload(generate_list)" \
+      --bind "enter:transform(is-valid-selection {})"
+  )
+
+  if [[ -z $selected ]]; then
+    exit 0
+  fi
+
+  if [[ $selected == "> "* ]]; then
+    create-project-session "" "${selected:2}"
+    exit 0
+  fi
+
+  # check list of projects
+  if [[ "${projects_list[$selected]}" ]]; then
+    create-project-session "${projects_list[$selected]}" "$selected"
+    exit 0
+  fi
+
+  # Handle Directory Selection (and strip leading whitepace)
+  clean_path="${selected#"${selected%%[![:space:]]*}"}"
+  if [[ $clean_path == "/"* ]]; then
+    create-project-session "$clean_path"
+    exit 0
+  fi
+done
