@@ -38,6 +38,8 @@
   default = upstream
 [submodule]
   recurse = true
+[init]
+  defaultBranch = master
 
 [url "git@github.com:weedz/"]
   insteadOf = "weedz:"
