@@ -55,3 +55,13 @@ Set default browser:
 ```console
 xdg-mime default firefox x-scheme-handler/https x-scheme-handler/http
 ```
+
+## Checkout subset of files
+
+```console
+git clone --sparse -n --depth=1 --filter=tree:0 https://github.com/weedz/dotfiles ./dotfiles
+cd dotfiles
+# For example only neovim configs:
+git sparse-checkout set --no-cone .config/nvim
+git checkout
+```
