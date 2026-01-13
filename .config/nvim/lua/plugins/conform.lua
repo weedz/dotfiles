@@ -1,19 +1,26 @@
-local util = require("conform.util")
-
 return {
     "stevearc/conform.nvim",
     opts = {
+        default_format_opts = {
+            lsp_format = "fallback",
+        },
         formatters_by_ft = {
-            typescript = { "oxfmt" },
-            typescriptreact = { "oxfmt" },
-            json = { "oxfmt" },
+            javascript = { "prettierd" },
+            javascriptreact = { "prettierd" },
+            typescript = { "prettierd" },
+            typescriptreact = { "prettierd" },
         },
         formatters = {
-            oxfmt = {
-                command = util.from_node_modules("oxfmt"),
-                -- can't use `--stdin-filepath`. something dies after exactly 146177 bytes
-                args = { "$FILENAME" },
-                stdin = false,
+            prettierd = {
+                condition = function(ctx, file)
+                    if not (file and file.buf) then
+                        return false
+                    end
+                    -- vim.print("bufnr:", file.buf)
+                    local oxfmt = vim.lsp.get_clients({ name = "oxfmt", bufnr = file.buf })[1]
+                    -- vim.print("oxfmt:", oxfmt)
+                    return oxfmt == nil
+                end,
             },
         },
     },

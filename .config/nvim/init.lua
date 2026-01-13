@@ -26,3 +26,35 @@ vim.diagnostic.config({
         current_line = true,
     },
 })
+
+---@param server string
+---@param bufnr integer
+local function disable_format_cap(server, bufnr)
+    local client = vim.lsp.get_clients({ name = server, bufnr = bufnr })[1]
+    if client then
+        client.server_capabilities.documentFormattingProvider = false
+    end
+end
+
+---@param server string
+local function disable_client_format_cap(server)
+    vim.lsp.config(server, {
+        on_attach = function(client, bufnr)
+            local oxfmt = vim.lsp.get_clients({ name = "oxfmt", bufnr = bufnr })[1]
+            if oxfmt then
+                client.server_capabilities.documentFormattingProvider = false
+            end
+        end,
+    })
+end
+
+vim.lsp.enable("oxfmt")
+vim.lsp.config("oxfmt", {
+    on_attach = function(client, bufnr)
+        -- NOTE: Disables `prettierd` in `conform` config (`lua/plugins/conform.lua`)
+        disable_format_cap("tsgo", bufnr)
+        disable_format_cap("vtsls", bufnr)
+    end,
+})
+disable_client_format_cap("tsgo")
+disable_client_format_cap("vtsls")
