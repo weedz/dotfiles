@@ -8,4 +8,7 @@ return {
     { "nvimdev/dashboard-nvim", enabled = false },
     { "catppuccin/nvim", enabled = false },
     { "mrcjkb/rustaceanvim", enabled = false },
+    { "nvim-lualine/lualine.nvim", enabled = false },
+    { "lewis6991/gitsigns.nvim", enabled = false },
+    { "akinsho/bufferline.nvim", enabled = false },
 }
