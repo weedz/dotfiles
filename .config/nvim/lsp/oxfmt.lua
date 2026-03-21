@@ -27,7 +27,7 @@ return {
         "mdx",
     },
     workspace_required = true,
-    -- root_markers = { ".oxfmtrc.jsonc", ".oxfmtrc.json" },
+    root_markers = { ".oxfmtrc.jsonc", ".oxfmtrc.json" },
     root_dir = function(bufnr, on_dir)
         local fname = vim.api.nvim_buf_get_name(bufnr)
 

@@ -5,6 +5,6 @@
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufEnter" }, {
     pattern = "*.md",
     callback = function()
-        vim.opt.conceallevel = 0
+        vim.o.conceallevel = 0
     end,
 })
