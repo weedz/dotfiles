@@ -12,4 +12,5 @@ return {
     { "nvim-lualine/lualine.nvim", enabled = false },
     -- { "lewis6991/gitsigns.nvim", enabled = false },
     { "akinsho/bufferline.nvim", enabled = false },
+    { "folke/noice.nvim", enabled = false },
 }
