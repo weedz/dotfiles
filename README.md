@@ -4,7 +4,7 @@ Setup with `stow`. Clone this repo into `$HOME/dotfiles`, cd into `dotfiles` and
 
 ## Required applications
 
-- [pary](https://github.com/Morganamilo/paru) - AUR build tool/helper
+- [paru](https://github.com/Morganamilo/paru) - AUR build tool/helper
 - `mako` - notifications
 - `sway`
   - `waybar`
