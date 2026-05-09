@@ -1,8 +1,8 @@
 fish_add_path "$HOME/bin"
 fish_add_path "$HOME/.cargo/bin"
 
-set -gx PNPM_HOME "/home/weedz/.local/share/pnpm"
-fish_add_path "$PNPM_HOME"
+set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+fish_add_path "$PNPM_HOME/bin"
 
 set -gx N_PREFIX "$HOME/n"
 fish_add_path "$N_PREFIX/bin"
