@@ -9,7 +9,7 @@ Setup with `stow`. Clone this repo into `$HOME/dotfiles`, cd into `dotfiles` and
 - `sway`
   - `waybar`
     - [`mediaplayer`](https://github.com/Alexays/Waybar/blob/master/resources/custom_modules/mediaplayer.py) plugin from waybar repository
-- `rofi-wayland` [wayland fork](https://github.com/lbonn/rofi)
+- `rofi`
 - `gnome-keyring`
   - TODO: Replace "secret service" with keepassxc.
 - [keepassxc](https://github.com/keepassxreboot/keepassxc)
