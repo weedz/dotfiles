@@ -22,7 +22,7 @@ sudo pacman -S --needed \
   handlr-regex \
   waybar \
   mako \
-  rofi-wayland \
+  rofi \
   gnome-keyring \
   keepassxc \
   polkit-kde-agent \
