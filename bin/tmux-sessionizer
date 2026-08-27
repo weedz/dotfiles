@@ -38,6 +38,7 @@ generate_list() {
 
 focus-session() {
   local session="$1"
+  # echo -ne "\033]0;tmux ${session}\007"
   if [[ -z $TMUX ]]; then
     # NOTE: Can't do `select-window` after `attach`
     tmux attach -t "$session"

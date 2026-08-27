@@ -36,6 +36,7 @@
   enabled = true
 [push]
   default = upstream
+	autoSetupRemote = true
 [submodule]
   recurse = true
 [init]

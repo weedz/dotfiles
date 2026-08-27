@@ -5,4 +5,4 @@ SETUVAR --export MANPAGER:nvim\x20\x2bMan\x21
 SETUVAR --export VISUAL:nvim
 SETUVAR __fish_initialized:4300
 SETUVAR fish_greeting:\x1d
-SETUVAR fish_user_paths:/home/weedz/n/bin\x1e/home/weedz/\x2elocal/share/pnpm\x1e/home/weedz/\x2ecargo/bin\x1e/home/weedz/bin
+SETUVAR fish_user_paths:/home/weedz/\x2elocal/share/pnpm/bin\x1e/home/weedz/n/bin\x1e/home/weedz/\x2elocal/share/pnpm\x1e/home/weedz/\x2ecargo/bin\x1e/home/weedz/bin

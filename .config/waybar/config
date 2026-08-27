@@ -6,8 +6,8 @@
   // Choose the order of the modules
   "modules-left": [
     "sway/workspaces",
-    "sway/mode",
-    "custom/mediaplayer"
+    "sway/mode"
+    // "custom/mediaplayer"
     // Custom module docs <https://github.com/Alexays/Waybar/wiki/Module:-Custom:-Simple>
     // "custom/foo",
   ],
