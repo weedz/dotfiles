@@ -51,14 +51,15 @@ local function disable_client_format_cap(server)
 end
 
 vim.lsp.enable("oxfmt")
+vim.lsp.enable("tsc")
 vim.lsp.config("oxfmt", {
     on_attach = function(client, bufnr)
         -- NOTE: Disables `prettierd` in `conform` config (`lua/plugins/conform.lua`)
-        disable_format_cap("tsgo", bufnr)
-        disable_format_cap("vtsls", bufnr)
+        disable_format_cap("tsc", bufnr)
+        -- disable_format_cap("vtsls", bufnr)
         disable_format_cap("jsonls", bufnr)
     end,
 })
-disable_client_format_cap("tsgo")
-disable_client_format_cap("vtsls")
+disable_client_format_cap("tsc")
+-- disable_client_format_cap("vtsls")
 disable_client_format_cap("jsonls")
