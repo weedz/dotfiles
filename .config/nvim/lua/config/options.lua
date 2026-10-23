@@ -6,6 +6,8 @@ vim.o.shiftwidth = 2
 vim.o.scrolloff = 10
 vim.o.modeline = false
 vim.o.cursorlineopt = "number"
+vim.o.conceallevel = 0
+-- vim.o.backupcopy = "yes"
 
 -- Disable animations...
 vim.g.snacks_animate = false

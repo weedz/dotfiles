@@ -1,23 +1,17 @@
 ###-begin-pnpm-completion-###
-function _pnpm_completion
-  set cmd (commandline -o)
-  set cursor (commandline -C)
-  set words (count $cmd)
-
-  set completions (eval env DEBUG=\"" \"" COMP_CWORD=\""$words\"" COMP_LINE=\""$cmd \"" COMP_POINT=\""$cursor\"" SHELL=fish pnpm completion-server -- $cmd)
-
-  if [ "$completions" = "__tabtab_complete_files__" ]
-    set -l matches (commandline -ct)*
-    if [ -n "$matches" ]
-      __fish_complete_path (commandline -ct)
-    end
-  else
-    for completion in $completions
-      echo -e $completion
-    end
+function __pnpm_completion
+  set -lx SHELL fish
+  set -lx COMP_LINE (commandline -cp)
+  set -lx COMP_POINT (string length -- $COMP_LINE)
+  set -l tokens (commandline -opc)
+  set -l current (commandline -ct)
+  if test (count $tokens) -eq 0
+    set -a tokens "$current"
+  else if test "$tokens[-1]" != "$current"
+    set -a tokens "$current"
   end
+  pnpm completion-server -- $tokens
 end
-
-complete -f -d 'pnpm' -c pnpm -a "(_pnpm_completion)"
+complete -c pnpm -f -a "(__pnpm_completion)"
+complete -c pn -f -a "(__pnpm_completion)"
 ###-end-pnpm-completion-###
-
