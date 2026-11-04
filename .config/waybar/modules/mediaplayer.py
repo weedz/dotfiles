@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import gi
+
 gi.require_version("Playerctl", "2.0")
 from gi.repository import Playerctl, GLib
 from gi.repository.Playerctl import Player
@@ -10,9 +11,13 @@ import signal
 import gi
 import json
 import os
+import dbus
+import dbus.service
+from dbus.mainloop.glib import DBusGMainLoop
 from typing import List
 
 logger = logging.getLogger(__name__)
+
 
 def signal_handler(sig, frame):
     logger.info("Received signal to stop, exiting")
@@ -23,23 +28,48 @@ def signal_handler(sig, frame):
 
 
 class PlayerManager:
-    def __init__(self, selected_player=None):
+    def __init__(self, selected_player=None, excluded_player=[]):
         self.manager = Playerctl.PlayerManager()
         self.loop = GLib.MainLoop()
         self.manager.connect(
-            "name-appeared", lambda *args: self.on_player_appeared(*args))
+            "name-appeared", lambda *args: self.on_player_appeared(*args)
+        )
         self.manager.connect(
-            "player-vanished", lambda *args: self.on_player_vanished(*args))
+            "player-vanished", lambda *args: self.on_player_vanished(*args)
+        )
 
         signal.signal(signal.SIGINT, signal_handler)
         signal.signal(signal.SIGTERM, signal_handler)
         signal.signal(signal.SIGPIPE, signal.SIG_DFL)
         self.selected_player = selected_player
+        self.excluded_player = excluded_player.split(",") if excluded_player else []
+
+        # use dbus to shift player (e.g. after playerctld shift)
+        bus = dbus.SessionBus(mainloop=DBusGMainLoop())
+        bus.add_signal_receiver(
+            lambda *args, **kwargs: self.on_dbus_shift(*args, **kwargs),
+            signal_name="Shift",
+            dbus_interface="org.waybar.Player",
+        )
+        # register well-known bus name
+        bus.request_name("org.waybar.Player")
 
         self.init_players()
 
+    def on_dbus_shift(self, *args, **kwargs):
+        # there is no implicit way to get current player,
+        # so we need to create a new manager to get the right order of players
+        new_manager = Playerctl.PlayerManager()
+        if len(new_manager.props.player_names) > 1:
+            current_player_name = new_manager.props.player_names[0].name
+            for player in self.get_players():
+                if player.props.player_name == current_player_name:
+                    self.on_metadata_changed(player, player.props.metadata)
+
     def init_players(self):
         for player in self.manager.props.player_names:
+            if player.name in self.excluded_player:
+                continue
             if self.selected_player is not None and self.selected_player != player.name:
                 logger.debug(f"{player.name} is not the filtered player, skipping it")
                 continue
@@ -52,8 +82,7 @@ class PlayerManager:
     def init_player(self, player):
         logger.info(f"Initialize new player: {player.name}")
         player = Playerctl.Player.new_from_name(player)
-        player.connect("playback-status",
-                       self.on_playback_status_changed, None)
+        player.connect("playback-status", self.on_playback_status_changed, None)
         player.connect("metadata", self.on_metadata_changed, None)
         self.manager.manage_player(player)
         self.on_metadata_changed(player, player.props.metadata)
@@ -64,9 +93,11 @@ class PlayerManager:
     def write_output(self, text, player):
         logger.debug(f"Writing output: {text}")
 
-        output = {"text": text,
-                  "class": "custom-" + player.props.player_name,
-                  "alt": player.props.player_name}
+        output = {
+            "text": text,
+            "class": "custom-" + player.props.player_name,
+            "alt": player.props.player_name,
+        }
 
         sys.stdout.write(json.dumps(output) + "\n")
         sys.stdout.flush()
@@ -76,7 +107,9 @@ class PlayerManager:
         sys.stdout.flush()
 
     def on_playback_status_changed(self, player, status, _=None):
-        logger.debug(f"Playback status changed for player {player.props.player_name}: {status}")
+        logger.debug(
+            f"Playback status changed for player {player.props.player_name}: {status}"
+        )
         self.on_metadata_changed(player, player.props.metadata)
 
     def get_first_playing_player(self):
@@ -102,22 +135,32 @@ class PlayerManager:
         current_player = self.get_first_playing_player()
         if current_player is not None:
             self.on_metadata_changed(current_player, current_player.props.metadata)
-        else:    
+        else:
             self.clear_output()
 
     def on_metadata_changed(self, player, metadata, _=None):
         logger.debug(f"Metadata changed for player {player.props.player_name}")
         player_name = player.props.player_name
         artist = player.get_artist()
+        if artist == "unknown artist":
+            artist = metadata["xesam:albumArtist"][0]
+        artist = artist and artist.replace("&", "&amp;")
         title = player.get_title()
+        title = title and title.replace("&", "&amp;")
 
         track_info = ""
-        if player_name == "spotify" and "mpris:trackid" in metadata.keys() and ":ad:" in player.props.metadata["mpris:trackid"]:
+        if (
+            player_name == "spotify"
+            and "mpris:trackid" in metadata.keys()
+            and ":ad:" in player.props.metadata["mpris:trackid"]
+        ):
             track_info = "Advertisement"
         elif artist is not None and title is not None:
             track_info = f"{artist} - {title}"
-        else:
+        elif title is not None:
             track_info = title
+        elif artist is not None:
+            track_info = artist
 
         if track_info:
             if player.props.status == "Playing":
@@ -126,28 +169,44 @@ class PlayerManager:
                 track_info = " " + track_info
         # only print output if no other player is playing
         current_playing = self.get_first_playing_player()
-        if current_playing is None or current_playing.props.player_name == player.props.player_name:
+        if (
+            current_playing is None
+            or current_playing.props.player_name == player.props.player_name
+        ):
             self.write_output(track_info, player)
         else:
-            logger.debug(f"Other player {current_playing.props.player_name} is playing, skipping")
+            logger.debug(
+                f"Other player {current_playing.props.player_name} is playing, skipping"
+            )
 
     def on_player_appeared(self, _, player):
         logger.info(f"Player has appeared: {player.name}")
-        if player is not None and (self.selected_player is None or player.name == self.selected_player):
+        if player.name in self.excluded_player:
+            logger.debug(
+                "New player appeared, but it's in exclude player list, skipping"
+            )
+            return
+        if player is not None and (
+            self.selected_player is None or player.name == self.selected_player
+        ):
             self.init_player(player)
         else:
             logger.debug(
-                "New player appeared, but it's not the selected player, skipping")
+                "New player appeared, but it's not the selected player, skipping"
+            )
 
     def on_player_vanished(self, _, player):
         logger.info(f"Player {player.props.player_name} has vanished")
         self.show_most_important_player()
+
 
 def parse_arguments():
     parser = argparse.ArgumentParser()
 
     # Increase verbosity with every occurrence of -v
     parser.add_argument("-v", "--verbose", action="count", default=0)
+
+    parser.add_argument("-x", "--exclude", "- Comma-separated list of excluded player")
 
     # Define for which player we"re listening
     parser.add_argument("--player")
@@ -162,10 +221,14 @@ def main():
 
     # Initialize logging
     if arguments.enable_logging:
-        logfile = os.path.join(os.path.dirname(
-            os.path.realpath(__file__)), "media-player.log")
-        logging.basicConfig(filename=logfile, level=logging.DEBUG,
-                            format="%(asctime)s %(name)s %(levelname)s:%(lineno)d %(message)s")
+        logfile = os.path.join(
+            os.path.dirname(os.path.realpath(__file__)), "media-player.log"
+        )
+        logging.basicConfig(
+            filename=logfile,
+            level=logging.DEBUG,
+            format="%(asctime)s %(name)s %(levelname)s:%(lineno)d %(message)s",
+        )
 
     # Logging is set by default to WARN and higher.
     # With every occurrence of -v it's lowered by one
@@ -174,7 +237,10 @@ def main():
     logger.info("Creating player manager")
     if arguments.player:
         logger.info(f"Filtering for player: {arguments.player}")
-    player = PlayerManager(arguments.player)
+    if arguments.exclude:
+        logger.info(f"Exclude player {arguments.exclude}")
+
+    player = PlayerManager(arguments.player, arguments.exclude)
     player.run()
 
 

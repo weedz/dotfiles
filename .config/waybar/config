@@ -6,8 +6,8 @@
   // Choose the order of the modules
   "modules-left": [
     "sway/workspaces",
-    "sway/mode"
-    // "custom/mediaplayer"
+    "sway/mode",
+    "custom/mediaplayer"
     // Custom module docs <https://github.com/Alexays/Waybar/wiki/Module:-Custom:-Simple>
     // "custom/foo",
   ],
@@ -44,13 +44,15 @@
     "exec": "$HOME/.config/waybar/modules/foo.js"
   },
   "custom/mediaplayer": {
-    "exec": "/usr/bin/python3 $HOME/.config/waybar/modules/mediaplayer.py --player spotify",
-    "exec-if": "pgrep spotify",
+    "exec": "/usr/bin/python3 $HOME/.config/waybar/modules/mediaplayer.py --player mpd",
+    "exec-if": "pgrep mpd",
     "max-length": 60,
-    "format": "{}  ",
+    "format": "{}",
     "escape": true,
     "return-type": "json",
-    "on-click": "playerctl --player=spotify play-pause"
+    "on-scroll-down": "playerctl --player mpd volume 0.05-",
+    "on-scroll-up": "playerctl --player mpd volume 0.05+",
+    "on-click": "playerctl --player=mpd play-pause"
   },
   "tray": {
     "spacing": 10

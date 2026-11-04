@@ -7,7 +7,7 @@ set $term footclient
 exec foot --server
 
 # Music player+
-set $music_player spotify
+set $music_player mpd
 
 ### Key bindings
 #
