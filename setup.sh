@@ -33,6 +33,7 @@ sudo pacman -S --needed \
   bat \
   grim slurp \
   git-delta \
+  rate-mirrors \
   tealdeer
 
 # "optional" applications
@@ -45,7 +46,7 @@ sudo pacman -S --needed \
   imv \
   nemo \
   engrampa \
-  steam-native-runtime \
+  steam \
   qalculate-gtk \
   helvum \
   meld \
